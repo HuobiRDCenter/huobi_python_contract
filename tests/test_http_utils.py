@@ -1,10 +1,10 @@
 import sys
 import unittest
+
+from alpha.utils.http_utils import get, post
 from config import *
 
 sys.path.append('..')
-from alpha.platforms.huobi_usdt_swap.http_utils import *
-from alpha.platforms.huobi_usdt_swap.logger import *
 
 
 class TestHttpUtils(unittest.TestCase):

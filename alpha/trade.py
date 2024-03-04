@@ -68,15 +68,15 @@ class Trade:
         self._init_success_callback = init_success_callback
 
         if platform == const.HUOBI_SWAP:
-            from alpha.platforms.huobi_swap_trade import HuobiSwapTrade as T
+            from alpha.platforms.huobi_coin_swap.websocket.huobi_swap_trade import HuobiSwapTrade as T
         elif platform == const.HUOBI_FUTURE:
-            from alpha.platforms.huobi_future_trade import HuobiFutureTrade as T
+            from alpha.platforms.huobi_coin_future.websocket.huobi_future_trade import HuobiFutureTrade as T
         elif platform == const.HUOBI_OPTION:
-            from alpha.platforms.huobi_option_trade import HuobiOptionTrade as T
+            from alpha.platforms.huobi_option.huobi_option_trade import HuobiOptionTrade as T
         elif platform == const.HUOBI_USDT_SWAP:
-            from alpha.platforms.huobi_usdt_swap_trade import HuobiUsdtSwapTrade  as T
+            from alpha.platforms.huobi_usdt_swap.websocket.huobi_usdt_swap_trade import HuobiUsdtSwapTrade  as T
         elif platform == const.HUOBI_USDT_SWAP_CROSS:
-            from alpha.platforms.huobi_usdt_swap_cross_trade import HuobiUsdtSwapCrossTrade  as T
+            from alpha.platforms.huobi_usdt_swap.websocket.huobi_usdt_swap_cross_trade import HuobiUsdtSwapCrossTrade  as T
         else:
             logger.error("platform error:", platform, caller=self)
             e = Error("platform error")

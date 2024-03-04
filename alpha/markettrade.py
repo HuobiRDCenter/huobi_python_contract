@@ -25,7 +25,8 @@ class Trade:
         timestamp: Update time, millisecond.
     """
 
-    def __init__(self, platform=None, symbol=None, action=None, price=None, quantity=None, timestamp=None):
+    def __init__(self, platform=None, symbol=None, action=None, price=None, quantity=None, timestamp=None, amount=None,
+                 id=None, direction=None, trade_turnover=None):
         """ Initialize. """
         self.platform = platform
         self.symbol = symbol
@@ -33,6 +34,10 @@ class Trade:
         self.price = price
         self.quantity = quantity
         self.timestamp = timestamp
+        self.amount = amount
+        self.id = id
+        self.direction = direction
+        self.trade_turnover = trade_turnover
 
     @property
     def data(self):
@@ -42,7 +47,11 @@ class Trade:
             "action": self.action,
             "price": self.price,
             "quantity": self.quantity,
-            "timestamp": self.timestamp
+            "timestamp": self.timestamp,
+            "amount": self.amount,
+            "id": self.id,
+            "direction": self.direction,
+            "trade_turnover": self.trade_turnover
         }
         return d
 

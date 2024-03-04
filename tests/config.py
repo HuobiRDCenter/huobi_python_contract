@@ -1,5 +1,5 @@
 config = {
-    "access_key":"x-x-x-x",
-    "secret_key":"x-x-x-x",
-    "host":"api.hbdm.com"
+    "access_key": "******",
+    "secret_key": "******",
+    "host": "https://api.hbdm.com"
 }

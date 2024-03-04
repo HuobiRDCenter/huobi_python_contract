@@ -1,9 +1,9 @@
-from alpha.platforms.huobi_usdt_swap.ws_utils import *
-from alpha.platforms.huobi_usdt_swap.logger import *
 import sys
 import unittest
-from config import *
 import time
+
+from alpha.utils import logger
+from alpha.utils.ws_utils import WsUtils
 
 sys.path.append('..')
 

@@ -14,85 +14,6 @@ from alpha import const
 from alpha.utils import logger
 
 
-class Orderbook:
-    """ Orderbook object.
-
-    Args:
-        platform: Exchange platform name, e.g. huobi_swap.
-        symbol: Trade pair name, e.g. BTC-USD.
-        asks: Asks list, e.g. [[price, quantity], [...], ...]
-        bids: Bids list, e.g. [[price, quantity], [...], ...]
-        timestamp: Update time, millisecond.
-    """
-
-    def __init__(self, platform=None, symbol=None, asks=None, bids=None, timestamp=None):
-        """ Initialize. """
-        self.platform = platform
-        self.symbol = symbol
-        self.asks = asks
-        self.bids = bids
-        self.timestamp = timestamp
-
-    @property
-    def data(self):
-        d = {
-            "platform": self.platform,
-            "symbol": self.symbol,
-            "asks": self.asks,
-            "bids": self.bids,
-            "timestamp": self.timestamp
-        }
-        return d
-
-    def __str__(self):
-        info = json.dumps(self.data)
-        return info
-
-    def __repr__(self):
-        return str(self)
-
-
-class Trade:
-    """ Trade object.
-
-    Args:
-        platform: Exchange platform name, e.g. huobi_swap.
-        symbol: Trade pair name, e.g. BTC-USD.
-        action: Trade action, BUY or SELL.
-        price: Order place price.
-        quantity: Order place quantity.
-        timestamp: Update time, millisecond.
-    """
-
-    def __init__(self, platform=None, symbol=None, action=None, price=None, quantity=None, timestamp=None):
-        """ Initialize. """
-        self.platform = platform
-        self.symbol = symbol
-        self.action = action
-        self.price = price
-        self.quantity = quantity
-        self.timestamp = timestamp
-
-    @property
-    def data(self):
-        d = {
-            "platform": self.platform,
-            "symbol": self.symbol,
-            "action": self.action,
-            "price": self.price,
-            "quantity": self.quantity,
-            "timestamp": self.timestamp
-        }
-        return d
-
-    def __str__(self):
-        info = json.dumps(self.data)
-        return info
-
-    def __repr__(self):
-        return str(self)
-
-
 class Kline:
     """ Kline object.
 
@@ -109,7 +30,8 @@ class Kline:
     """
 
     def __init__(self, platform=None, symbol=None, open=None, high=None, low=None, close=None, volume=None,
-                 timestamp=None, kline_type=None):
+                 timestamp=None, kline_type=None, id=None, mrid=None, vol=None, count=None, amount=None,
+                 trade_turnover=None):
         """ Initialize. """
         self.platform = platform
         self.symbol = symbol
@@ -120,6 +42,12 @@ class Kline:
         self.volume = volume
         self.timestamp = timestamp
         self.kline_type = kline_type
+        self.id = id
+        self.mrid = mrid
+        self.vol = vol
+        self.count = count
+        self.amount = amount
+        self.trade_turnover = trade_turnover
 
     @property
     def data(self):
@@ -132,7 +60,13 @@ class Kline:
             "close": self.close,
             "volume": self.volume,
             "timestamp": self.timestamp,
-            "kline_type": self.kline_type
+            "kline_type": self.kline_type,
+            "id": self.id,
+            "mrid": self.mrid,
+            "vol": self.vol,
+            "count": self.count,
+            "amount": self.amount,
+            "trade_turnover": self.trade_turnover,
         }
         return d
 

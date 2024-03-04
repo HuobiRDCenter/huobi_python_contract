@@ -12,10 +12,6 @@ import copy
 
 from alpha import const
 from alpha.utils import logger
-from alpha.tasks import SingleTask
-from alpha.orderbook import Orderbook
-from alpha.kline import Kline
-from alpha.markettrade import Trade
 
 
 class Market:
@@ -60,15 +56,15 @@ class Market:
         self._on_trade_update_callback = trade_update_callback
 
         if platform == const.HUOBI_SWAP:
-            from alpha.platforms.huobi_swap_market import HuobiSwapMarket  as M
+            from alpha.platforms.huobi_coin_swap.websocket.huobi_swap_market import HuobiSwapMarket  as M
         elif platform == const.HUOBI_FUTURE:
-            from alpha.platforms.huobi_future_market import HuobiFutureMarket  as M
+            from alpha.platforms.huobi_coin_future.websocket.huobi_future_market import HuobiFutureMarket  as M
         elif platform == const.HUOBI_OPTION:
-            from alpha.platforms.huobi_option_market import HuobiOptionMarket  as M
+            from alpha.platforms.huobi_option.huobi_option_market import HuobiOptionMarket  as M
         elif platform == const.HUOBI_USDT_SWAP:
-            from alpha.platforms.huobi_usdt_swap_market import HuobiUsdtSwapMarket  as M
+            from alpha.platforms.huobi_usdt_swap.websocket.huobi_usdt_swap_market import HuobiUsdtSwapMarket  as M
         elif platform == const.HUOBI_USDT_SWAP_CROSS:
-            from alpha.platforms.huobi_usdt_swap_market import HuobiUsdtSwapMarket  as M
+            from alpha.platforms.huobi_usdt_swap.websocket.huobi_usdt_swap_market import HuobiUsdtSwapMarket  as M
         else:
             logger.error("platform error:", platform, caller=self)
             return

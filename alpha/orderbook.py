@@ -25,13 +25,18 @@ class Orderbook:
         timestamp: Update time, millisecond.
     """
 
-    def __init__(self, platform=None, symbol=None, asks=None, bids=None, timestamp=None):
+    def __init__(self, platform=None, symbol=None, asks=None, bids=None, timestamp=None, mrid=None, id=None,
+                 version=None, ch=None):
         """ Initialize. """
         self.platform = platform
         self.symbol = symbol
         self.asks = asks
         self.bids = bids
         self.timestamp = timestamp
+        self.mrid = mrid
+        self.id = id
+        self.version = version
+        self.ch = ch
 
     @property
     def data(self):
@@ -40,7 +45,11 @@ class Orderbook:
             "symbol": self.symbol,
             "asks": self.asks,
             "bids": self.bids,
-            "timestamp": self.timestamp
+            "timestamp": self.timestamp,
+            "mrid": self.mrid,
+            "id": self.id,
+            "version": self.version,
+            "ch": self.ch
         }
         return d
 
