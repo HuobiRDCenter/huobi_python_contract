@@ -1,0 +1,124 @@
+2024-10-22 15:19:35.988 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:29:52.916 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:30:01.070 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:36:46.079 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:37:30.118 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:38:12.311 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:38:57.045 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:38:58.163 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:39:13.571 [ERROR] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:39:17.049 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:39:21.164 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:39:36.569 [ERROR] [WebSocketConnectReadThread-23] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:39:37.047 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:39:38.146 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:39:53.590 [ERROR] [WebSocketConnectReadThread-28] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:39:57.050 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:39:58.278 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:40:13.693 [ERROR] [WebSocketConnectReadThread-33] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:40:17.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:40:17.820 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:40:33.220 [ERROR] [WebSocketConnectReadThread-38] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:40:37.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:40:38.091 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:40:53.495 [ERROR] [WebSocketConnectReadThread-41] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:40:57.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:40:58.190 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:42:58.194 [ERROR] [WebSocketTimer] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection,b:false
+2024-10-22 15:42:58.287 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:42:59.250 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:43:14.587 [ERROR] [WebSocketConnectReadThread-47] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:43:17.055 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:43:18.146 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:43:38.691 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:44:23.461 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:44:25.021 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:44:40.301 [ERROR] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:44:43.434 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:47:19.646 [ERROR] [WebSocketConnectReadThread-23] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:47:19.647 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:47:19.651 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:47:19.651 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:48:23.475 [ERROR] [WebSocketConnectReadThread-25] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:48:23.477 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:48:23.477 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:48:23.478 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:50:02.557 [ERROR] [WebSocketConnectReadThread-27] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:50:02.560 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:50:02.560 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:50:02.561 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:50:22.677 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:50:37.968 [ERROR] [WebSocketConnectReadThread-29] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:50:43.481 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:50:44.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:50:59.068 [ERROR] [WebSocketConnectReadThread-34] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:51:03.443 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:51:04.242 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:51:19.229 [ERROR] [WebSocketConnectReadThread-39] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:51:22.682 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:52:37.652 [ERROR] [WebSocketConnectReadThread-44] [com.huobi.wss.handle.WssNotificationHandle.onError:106] - onError:{}
+java.net.ConnectException: Operation timed out (Connection timed out)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)
+	at java.net.Socket.connect(Socket.java:606)
+	at org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:395)
+	at java.lang.Thread.run(Thread.java:750)
+2024-10-22 15:52:37.653 [ERROR] [WebSocketConnectReadThread-44] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:Operation timed out (Connection timed out),b:false
+2024-10-22 15:52:37.654 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:52:37.654 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:52:37.655 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:52:38.561 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:52:53.868 [ERROR] [WebSocketConnectReadThread-45] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:52:53.996 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:53:14.165 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:53:29.486 [ERROR] [WebSocketConnectReadThread-48] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:53:32.620 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:54:08.205 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:54:15.360 [ERROR] [WebSocketConnectReadThread-13] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:55:10.115 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:55:54.883 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:57:04.453 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:57:11.049 [ERROR] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:57:11.050 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:57:11.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:57:11.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:57:12.218 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:57:16.444 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onError:106] - onError:{}
+java.net.ConnectException: Operation timed out (Connection timed out)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)
+	at java.net.Socket.connect(Socket.java:606)
+	at org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:395)
+	at java.lang.Thread.run(Thread.java:750)
+2024-10-22 15:57:16.448 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:Operation timed out (Connection timed out),b:false
+2024-10-22 15:57:27.551 [ERROR] [WebSocketConnectReadThread-20] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:57:34.879 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:58:04.069 [ERROR] [WebSocketConnectReadThread-25] [com.huobi.wss.handle.WssNotificationHandle.onError:106] - onError:{}
+java.net.ConnectException: Operation timed out (Connection timed out)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)
+	at java.net.Socket.connect(Socket.java:606)
+	at org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:395)
+	at java.lang.Thread.run(Thread.java:750)
+2024-10-22 15:58:04.073 [ERROR] [WebSocketConnectReadThread-25] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:Operation timed out (Connection timed out),b:false
+2024-10-22 15:58:04.074 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:58:04.076 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:58:04.077 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:58:04.904 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:58:19.950 [ERROR] [WebSocketConnectReadThread-26] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:58:22.223 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:58:24.872 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:58:39.905 [ERROR] [WebSocketConnectReadThread-31] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:58:42.220 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:58:43.352 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:58:58.750 [ERROR] [WebSocketConnectReadThread-36] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:59:02.223 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:59:03.094 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:59:18.514 [ERROR] [WebSocketConnectReadThread-41] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:59:22.220 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连

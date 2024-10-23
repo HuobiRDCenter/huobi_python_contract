@@ -1,0 +1,1 @@
+2024-10-21 18:42:11.309 [DEBUG] [main] [com.huobi.api.service.coin_futures.account.AccountAPIServiceImpl.getContractBalanceValuation:405] - body:{"status":"error","err_code":1004,"err_msg":"System busy. Please try again later.","ts":1729507331356}

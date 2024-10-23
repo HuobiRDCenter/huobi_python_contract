@@ -1,0 +1,302 @@
+2024-10-22 15:19:35.988 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:29:52.916 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:30:01.070 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:32:05.243 [INFO] [WebSocketConnectReadThread-13] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:32:05.254 [INFO] [WebSocketConnectReadThread-13] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:32:05.757 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:28] - 用户收到的数据===============:{"op":"notify","topic":"public.futures.heartbeat","event":"init","ts":1729582325618,"data":{"heartbeat":1,"estimated_recovery_time":null}}
+2024-10-22 15:32:05.819 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:31] - ts为：1729582325618,当前的时间戳为：1729582325764,时间间隔为：146毫秒
+2024-10-22 15:33:35.422 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:174] - before send 
+2024-10-22 15:33:35.426 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:176] - after send 
+2024-10-22 15:33:35.932 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:30] - 用户收到的数据===============:{"op":"notify","topic":"public.futures.heartbeat","event":"init","ts":1729582415763,"data":{"heartbeat":1,"estimated_recovery_time":null}}
+2024-10-22 15:33:35.951 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:33] - ts为：1729582415763,当前的时间戳为：1729582415934,时间间隔为：171毫秒
+2024-10-22 15:35:06.046 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582505932,"status":"ok","data":[]}
+2024-10-22 15:35:06.064 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582505932"}
+2024-10-22 15:35:06.909 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582506779,"status":"ok","data":[]}
+2024-10-22 15:35:06.909 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582506779"}
+2024-10-22 15:35:07.929 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582507785,"status":"ok","data":[]}
+2024-10-22 15:35:07.930 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582507785"}
+2024-10-22 15:35:08.893 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582508787,"status":"ok","data":[]}
+2024-10-22 15:35:08.893 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582508787"}
+2024-10-22 15:35:09.870 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582509787,"status":"ok","data":[]}
+2024-10-22 15:35:09.871 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582509787"}
+2024-10-22 15:35:10.926 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582510855,"status":"ok","data":[]}
+2024-10-22 15:35:10.926 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582510855"}
+2024-10-22 15:35:11.947 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582511795,"status":"ok","data":[]}
+2024-10-22 15:35:11.948 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582511795"}
+2024-10-22 15:35:12.944 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582512800,"status":"ok","data":[]}
+2024-10-22 15:35:12.945 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582512800"}
+2024-10-22 15:35:13.925 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582513813,"status":"ok","data":[]}
+2024-10-22 15:35:13.926 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582513813"}
+2024-10-22 15:35:14.907 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582514816,"status":"ok","data":[]}
+2024-10-22 15:35:14.907 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582514816"}
+2024-10-22 15:35:16.077 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582515918,"status":"ok","data":[]}
+2024-10-22 15:35:16.078 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582515918"}
+2024-10-22 15:35:16.939 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582516826,"status":"ok","data":[]}
+2024-10-22 15:35:16.940 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582516826"}
+2024-10-22 15:35:17.981 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582517823,"status":"ok","data":[]}
+2024-10-22 15:35:17.982 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582517823"}
+2024-10-22 15:35:18.941 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582518824,"status":"ok","data":[]}
+2024-10-22 15:35:18.942 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582518824"}
+2024-10-22 15:35:19.926 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582519835,"status":"ok","data":[]}
+2024-10-22 15:35:19.927 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582519835"}
+2024-10-22 15:35:21.131 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582520868,"status":"ok","data":[]}
+2024-10-22 15:35:21.134 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582520868"}
+2024-10-22 15:35:21.976 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582521837,"status":"ok","data":[]}
+2024-10-22 15:35:21.977 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582521837"}
+2024-10-22 15:35:22.941 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582522839,"status":"ok","data":[]}
+2024-10-22 15:35:22.942 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582522839"}
+2024-10-22 15:35:23.950 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582523845,"status":"ok","data":[]}
+2024-10-22 15:35:23.950 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582523845"}
+2024-10-22 15:35:24.941 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582524849,"status":"ok","data":[]}
+2024-10-22 15:35:24.942 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582524849"}
+2024-10-22 15:35:25.958 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582525851,"status":"ok","data":[]}
+2024-10-22 15:35:25.959 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582525851"}
+2024-10-22 15:35:26.936 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582526854,"status":"ok","data":[]}
+2024-10-22 15:35:26.937 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582526854"}
+2024-10-22 15:35:27.984 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582527859,"status":"ok","data":[]}
+2024-10-22 15:35:27.984 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582527859"}
+2024-10-22 15:35:28.972 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582528865,"status":"ok","data":[]}
+2024-10-22 15:35:28.972 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582528865"}
+2024-10-22 15:35:29.964 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582529873,"status":"ok","data":[]}
+2024-10-22 15:35:29.965 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582529873"}
+2024-10-22 15:35:30.998 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582530866,"status":"ok","data":[]}
+2024-10-22 15:35:30.999 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582530866"}
+2024-10-22 15:35:32.009 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582531879,"status":"ok","data":[]}
+2024-10-22 15:35:32.010 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582531879"}
+2024-10-22 15:35:33.012 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582532884,"status":"ok","data":[]}
+2024-10-22 15:35:33.013 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582532884"}
+2024-10-22 15:35:33.974 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582533887,"status":"ok","data":[]}
+2024-10-22 15:35:33.975 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582533887"}
+2024-10-22 15:35:35.013 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582534887,"status":"ok","data":[]}
+2024-10-22 15:35:35.014 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582534887"}
+2024-10-22 15:35:36.021 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582535884,"status":"ok","data":[]}
+2024-10-22 15:35:36.022 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582535884"}
+2024-10-22 15:35:37.043 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582536897,"status":"ok","data":[]}
+2024-10-22 15:35:37.044 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582536897"}
+2024-10-22 15:35:38.044 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582537895,"status":"ok","data":[]}
+2024-10-22 15:35:38.045 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582537895"}
+2024-10-22 15:35:38.990 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582538903,"status":"ok","data":[]}
+2024-10-22 15:35:38.991 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582538903"}
+2024-10-22 15:35:39.990 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582539903,"status":"ok","data":[]}
+2024-10-22 15:35:39.990 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582539903"}
+2024-10-22 15:35:41.049 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582540943,"status":"ok","data":[]}
+2024-10-22 15:35:41.050 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582540943"}
+2024-10-22 15:35:42.005 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582541910,"status":"ok","data":[]}
+2024-10-22 15:35:42.006 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582541910"}
+2024-10-22 15:35:43.011 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582542913,"status":"ok","data":[]}
+2024-10-22 15:35:43.011 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582542913"}
+2024-10-22 15:35:44.001 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582543915,"status":"ok","data":[]}
+2024-10-22 15:35:44.002 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582543915"}
+2024-10-22 15:35:45.055 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582544916,"status":"ok","data":[]}
+2024-10-22 15:35:45.056 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582544916"}
+2024-10-22 15:35:46.012 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582545918,"status":"ok","data":[]}
+2024-10-22 15:35:46.013 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582545918"}
+2024-10-22 15:35:47.028 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:26] - 请求(req)指数K线数据用户收到的原始数据:{"id":"","rep":"market.BTC-USD.index.1min","wsid":769372505,"ts":1729582546931,"status":"ok","data":[]}
+2024-10-22 15:35:47.028 [INFO] [WebSocketConnectReadThread-11] [com.huobi.future.wss.WssIndexReqTest.lambda$test1$0:28] - 请求(req)指数K线数据解析之后的数据为:{"wsid":769372505,"data":[],"id":"","status":"ok","ts":"1729582546931"}
+2024-10-22 15:35:58.344 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582557256,"tick":{"id":1729582500,"open":"67547.4775","close":"67564.045","high":"67564.045","low":"67547.4775","amount":"0","vol":"0","count":0}}
+2024-10-22 15:35:58.363 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582557256,当前的时间戳为：1729582558345,时间间隔为：1089毫秒
+2024-10-22 15:35:58.375 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582558256,"tick":{"id":1729582500,"open":"67547.4775","close":"67565.045","high":"67565.045","low":"67547.4775","amount":"0","vol":"0","count":0}}
+2024-10-22 15:35:58.376 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582558256,当前的时间戳为：1729582558376,时间间隔为：120毫秒
+2024-10-22 15:35:59.424 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582559256,"tick":{"id":1729582500,"open":"67547.4775","close":"67565.045","high":"67565.045","low":"67547.4775","amount":"0","vol":"0","count":0}}
+2024-10-22 15:35:59.425 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582559256,当前的时间戳为：1729582559425,时间间隔为：169毫秒
+2024-10-22 15:36:00.337 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582560255,"tick":{"id":1729582560,"open":"67565.045","close":"67565.045","high":"67565.045","low":"67565.045","amount":"0","vol":"0","count":0}}
+2024-10-22 15:36:00.337 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582560255,当前的时间戳为：1729582560337,时间间隔为：82毫秒
+2024-10-22 15:36:01.468 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582561256,"tick":{"id":1729582560,"open":"67565.045","close":"67565.045","high":"67565.045","low":"67565.045","amount":"0","vol":"0","count":0}}
+2024-10-22 15:36:01.469 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582561256,当前的时间戳为：1729582561468,时间间隔为：212毫秒
+2024-10-22 15:36:02.495 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582562256,"tick":{"id":1729582560,"open":"67565.045","close":"67560.91","high":"67565.045","low":"67560.91","amount":"0","vol":"0","count":0}}
+2024-10-22 15:36:02.496 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582562256,当前的时间戳为：1729582562495,时间间隔为：239毫秒
+2024-10-22 15:36:03.400 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582563256,"tick":{"id":1729582560,"open":"67565.045","close":"67560.91","high":"67565.045","low":"67560.91","amount":"0","vol":"0","count":0}}
+2024-10-22 15:36:03.401 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582563256,当前的时间戳为：1729582563400,时间间隔为：144毫秒
+2024-10-22 15:36:04.439 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582564256,"tick":{"id":1729582560,"open":"67565.045","close":"67560.91","high":"67565.045","low":"67560.91","amount":"0","vol":"0","count":0}}
+2024-10-22 15:36:04.439 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582564256,当前的时间戳为：1729582564439,时间间隔为：183毫秒
+2024-10-22 15:36:05.463 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:25] - 订阅(sub)指数K线数据用户收到的数据===============:{"ch":"market.BTC-USD.index.1min","ts":1729582565256,"tick":{"id":1729582560,"open":"67565.045","close":"67560.91","high":"67565.045","low":"67560.91","amount":"0","vol":"0","count":0}}
+2024-10-22 15:36:05.464 [INFO] [pool-2-thread-1] [com.huobi.future.wss.WssIndexSubTest.lambda$test1$0:28] - 订阅(sub)指数K线数据的ts为：1729582565256,当前的时间戳为：1729582565463,时间间隔为：207毫秒
+2024-10-22 15:36:15.161 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:174] - before send 
+2024-10-22 15:36:15.164 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:176] - after send 
+2024-10-22 15:36:15.535 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:30] - 用户收到的数据===============:{"op":"notify","topic":"public.futures.heartbeat","event":"init","ts":1729582575455,"data":{"heartbeat":1,"estimated_recovery_time":null}}
+2024-10-22 15:36:15.552 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:33] - ts为：1729582575455,当前的时间戳为：1729582575537,时间间隔为：82毫秒
+2024-10-22 15:36:30.099 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:36:30.111 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:36:46.079 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:37:30.118 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:37:57.028 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:37:57.039 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:38:12.311 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:38:57.045 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:38:58.162 [INFO] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:38:58.163 [INFO] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:38:58.163 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:39:13.571 [ERROR] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:39:17.049 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:39:21.159 [INFO] [WebSocketConnectReadThread-23] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:39:21.163 [INFO] [WebSocketConnectReadThread-23] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:39:21.164 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:39:36.569 [ERROR] [WebSocketConnectReadThread-23] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:39:37.047 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:39:38.145 [INFO] [WebSocketConnectReadThread-28] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:39:38.146 [INFO] [WebSocketConnectReadThread-28] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:39:38.146 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:39:53.590 [ERROR] [WebSocketConnectReadThread-28] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:39:57.050 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:39:58.277 [INFO] [WebSocketConnectReadThread-33] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:39:58.277 [INFO] [WebSocketConnectReadThread-33] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:39:58.278 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:40:13.693 [ERROR] [WebSocketConnectReadThread-33] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:40:17.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:40:17.820 [INFO] [WebSocketConnectReadThread-38] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:40:17.820 [INFO] [WebSocketConnectReadThread-38] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:40:17.820 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:40:33.220 [ERROR] [WebSocketConnectReadThread-38] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:40:37.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:40:38.089 [INFO] [WebSocketConnectReadThread-41] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:40:38.090 [INFO] [WebSocketConnectReadThread-41] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:40:38.091 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:40:53.495 [ERROR] [WebSocketConnectReadThread-41] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:40:57.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:40:58.189 [INFO] [WebSocketConnectReadThread-44] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:40:58.189 [INFO] [WebSocketConnectReadThread-44] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:40:58.190 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:42:58.194 [ERROR] [WebSocketTimer] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection,b:false
+2024-10-22 15:42:58.287 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:42:59.248 [INFO] [WebSocketConnectReadThread-47] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:42:59.249 [INFO] [WebSocketConnectReadThread-47] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:42:59.250 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:43:14.587 [ERROR] [WebSocketConnectReadThread-47] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:43:17.055 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:43:18.146 [INFO] [WebSocketConnectReadThread-50] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:43:18.146 [INFO] [WebSocketConnectReadThread-50] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:43:18.146 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:43:23.403 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:43:23.420 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:43:38.691 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:44:23.461 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:44:25.020 [INFO] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:44:25.020 [INFO] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:44:25.021 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:44:40.301 [ERROR] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:44:43.434 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:47:19.646 [ERROR] [WebSocketConnectReadThread-23] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:47:19.647 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:47:19.651 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:47:19.651 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:48:23.475 [ERROR] [WebSocketConnectReadThread-25] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:48:23.477 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:48:23.477 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:48:23.478 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:50:02.557 [ERROR] [WebSocketConnectReadThread-27] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:50:02.560 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:50:02.560 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:50:02.561 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:50:22.675 [INFO] [WebSocketConnectReadThread-29] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:50:22.677 [INFO] [WebSocketConnectReadThread-29] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:50:22.677 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:50:37.968 [ERROR] [WebSocketConnectReadThread-29] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:50:43.481 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:50:44.050 [INFO] [WebSocketConnectReadThread-34] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:50:44.051 [INFO] [WebSocketConnectReadThread-34] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:50:44.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:50:59.068 [ERROR] [WebSocketConnectReadThread-34] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:51:03.443 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:51:04.241 [INFO] [WebSocketConnectReadThread-39] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:51:04.241 [INFO] [WebSocketConnectReadThread-39] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:51:04.242 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:51:19.229 [ERROR] [WebSocketConnectReadThread-39] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:51:22.682 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:52:37.652 [ERROR] [WebSocketConnectReadThread-44] [com.huobi.wss.handle.WssNotificationHandle.onError:106] - onError:{}
+java.net.ConnectException: Operation timed out (Connection timed out)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)
+	at java.net.Socket.connect(Socket.java:606)
+	at org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:395)
+	at java.lang.Thread.run(Thread.java:750)
+2024-10-22 15:52:37.653 [ERROR] [WebSocketConnectReadThread-44] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:Operation timed out (Connection timed out),b:false
+2024-10-22 15:52:37.654 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:52:37.654 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:52:37.655 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:52:38.560 [INFO] [WebSocketConnectReadThread-45] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:52:38.560 [INFO] [WebSocketConnectReadThread-45] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:52:38.561 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:52:53.868 [ERROR] [WebSocketConnectReadThread-45] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:52:53.996 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:53:00.287 [INFO] [WebSocketConnectReadThread-13] [com.huobi.wss.handle.WssNotificationHandle.addAuth:174] - before send 
+2024-10-22 15:53:00.292 [INFO] [WebSocketConnectReadThread-13] [com.huobi.wss.handle.WssNotificationHandle.addAuth:176] - after send 
+2024-10-22 15:53:00.605 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:30] - 用户收到的数据===============:{"op":"notify","topic":"public.futures.heartbeat","event":"init","ts":1729583580600,"data":{"heartbeat":1,"estimated_recovery_time":null}}
+2024-10-22 15:53:00.629 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:33] - ts为：1729583580600,当前的时间戳为：1729583580607,时间间隔为：7毫秒
+2024-10-22 15:53:14.163 [INFO] [WebSocketConnectReadThread-48] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:53:14.164 [INFO] [WebSocketConnectReadThread-48] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:53:14.165 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:53:29.486 [ERROR] [WebSocketConnectReadThread-48] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:53:32.620 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:54:00.087 [INFO] [WebSocketConnectReadThread-13] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:54:00.092 [INFO] [WebSocketConnectReadThread-13] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:54:08.204 [INFO] [WebSocketConnectReadThread-51] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:54:08.205 [INFO] [WebSocketConnectReadThread-51] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:54:08.205 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:54:15.360 [ERROR] [WebSocketConnectReadThread-13] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:54:54.864 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:54:54.868 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:55:10.115 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:55:41.113 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:174] - before send 
+2024-10-22 15:55:41.117 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:176] - after send 
+2024-10-22 15:55:41.364 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:30] - 用户收到的数据===============:{"op":"notify","topic":"public.futures.heartbeat","event":"init","ts":1729583741407,"data":{"heartbeat":1,"estimated_recovery_time":null}}
+2024-10-22 15:55:41.384 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:33] - ts为：1729583741407,当前的时间戳为：1729583741366,时间间隔为：-41毫秒
+2024-10-22 15:55:54.883 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:56:33.694 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:56:33.706 [INFO] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:56:33.988 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:28] - 用户收到的数据===============:{"op":"notify","topic":"public.futures.heartbeat","event":"init","ts":1729583794012,"data":{"heartbeat":1,"estimated_recovery_time":null}}
+2024-10-22 15:56:34.006 [INFO] [pool-2-thread-2] [com.huobi.future.wss.WssCenterNotificationSubHmac256Test.lambda$test1$0:31] - ts为：1729583794012,当前的时间戳为：1729583793990,时间间隔为：-22毫秒
+2024-10-22 15:57:04.453 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:57:11.049 [ERROR] [WebSocketConnectReadThread-18] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:,b:true
+2024-10-22 15:57:11.050 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:57:11.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:57:11.051 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:57:12.217 [INFO] [WebSocketConnectReadThread-20] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:57:12.217 [INFO] [WebSocketConnectReadThread-20] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:57:12.218 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:57:16.444 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onError:106] - onError:{}
+java.net.ConnectException: Operation timed out (Connection timed out)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)
+	at java.net.Socket.connect(Socket.java:606)
+	at org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:395)
+	at java.lang.Thread.run(Thread.java:750)
+2024-10-22 15:57:16.448 [ERROR] [WebSocketConnectReadThread-11] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:Operation timed out (Connection timed out),b:false
+2024-10-22 15:57:27.551 [ERROR] [WebSocketConnectReadThread-20] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:57:34.879 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:58:04.069 [ERROR] [WebSocketConnectReadThread-25] [com.huobi.wss.handle.WssNotificationHandle.onError:106] - onError:{}
+java.net.ConnectException: Operation timed out (Connection timed out)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)
+	at java.net.Socket.connect(Socket.java:606)
+	at org.java_websocket.client.WebSocketClient.run(WebSocketClient.java:395)
+	at java.lang.Thread.run(Thread.java:750)
+2024-10-22 15:58:04.073 [ERROR] [WebSocketConnectReadThread-25] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:-1,s:Operation timed out (Connection timed out),b:false
+2024-10-22 15:58:04.074 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：false
+2024-10-22 15:58:04.076 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:196] - closeBlocking
+2024-10-22 15:58:04.077 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:58:04.903 [INFO] [WebSocketConnectReadThread-26] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:58:04.903 [INFO] [WebSocketConnectReadThread-26] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:58:04.904 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:58:19.950 [ERROR] [WebSocketConnectReadThread-26] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:58:22.223 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:58:24.871 [INFO] [WebSocketConnectReadThread-31] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:58:24.871 [INFO] [WebSocketConnectReadThread-31] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:58:24.872 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:58:39.905 [ERROR] [WebSocketConnectReadThread-31] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:58:42.220 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:58:43.351 [INFO] [WebSocketConnectReadThread-36] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:58:43.351 [INFO] [WebSocketConnectReadThread-36] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:58:43.352 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:58:58.750 [ERROR] [WebSocketConnectReadThread-36] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:59:02.223 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
+2024-10-22 15:59:03.092 [INFO] [WebSocketConnectReadThread-41] [com.huobi.wss.handle.WssNotificationHandle.addAuth:157] - before send 
+2024-10-22 15:59:03.092 [INFO] [WebSocketConnectReadThread-41] [com.huobi.wss.handle.WssNotificationHandle.addAuth:159] - after send 
+2024-10-22 15:59:03.094 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:193] - 重连的结果为：true
+2024-10-22 15:59:18.514 [ERROR] [WebSocketConnectReadThread-41] [com.huobi.wss.handle.WssNotificationHandle.onClose:101] - onClose i:1006,s:,b:true
+2024-10-22 15:59:22.220 [ERROR] [pool-1-thread-1] [com.huobi.wss.handle.WssNotificationHandle.run:191] - isClosed:true,isClosing:false，准备重连
