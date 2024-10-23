@@ -1,0 +1,3 @@
+2024-01-23 10:54:58.919 [DEBUG] [main] [com.huobi.usdt.api.BaseTest.jsonToObjext:149] - {"data":[{"marginAccount":"BTC-USDT","positionMode":"single_side"}],"status":"ok","ts":1566899973811}
+2024-01-23 10:55:53.265 [DEBUG] [main] [com.huobi.usdt.api.BaseTest.jsonToObjext:149] - {"data":{"clientOrderId":57012021022,"orderId":770323133537685500,"orderIdStr":"770323133537685504"},"status":"ok","ts":1603700946949}
+2024-01-23 10:57:06.814 [DEBUG] [main] [com.huobi.usdt.api.BaseTest.jsonToObjext:162] - {"data":{"errors":[{"errCode":1050,"errMsg":"Customers order number is repeated. Please try again later.","index":2}],"success":[{"clientOrderId":57012021024,"index":1,"orderId":770323847022211100,"orderIdStr":"770323847022211072"}]},"status":"ok","ts":1603701117058}
