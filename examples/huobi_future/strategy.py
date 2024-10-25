@@ -31,6 +31,7 @@ class MyStrategy:
     def __init__(self):
         """ 初始化
         """
+
         self.strategy = config.strategy
         self.platform = config.accounts[0]["platform"]
         self.account = config.accounts[0]["account"]

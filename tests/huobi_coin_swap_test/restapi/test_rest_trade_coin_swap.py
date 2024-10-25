@@ -11,7 +11,7 @@ sys.path.append('..')
 class TestRestTradeCoinSwap(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.api = HuobiCoinSwapRestTradeAPI(config["host"], config["access_key"], config["secret_key"])
+        cls.api = HuobiCoinSwapRestTradeAPI(config["host"], config["access_key"], config["secret_key"],config["sign"])
 
     def test_swap_cancel_after(self):
         loop = asyncio.get_event_loop()

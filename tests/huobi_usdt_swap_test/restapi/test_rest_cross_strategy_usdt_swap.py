@@ -11,7 +11,7 @@ sys.path.append('..')
 class TestRestCrossStrategyUsdtSwap(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.api = HuobiUsdtSwapRestCrossStrategyAPI(config["host"], config["access_key"], config["secret_key"])
+        cls.api = HuobiUsdtSwapRestCrossStrategyAPI(config["host"], config["access_key"], config["secret_key"],config["sign"])
 
     def test_swap_cross_trigger_order(self):
         loop = asyncio.get_event_loop()

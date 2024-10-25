@@ -10,7 +10,7 @@ Email:  andyjoe318@gmail.com
 
 
 import sys
-
+from alpha.config import config
 
 def initialize():
     from strategy import MyStrategy
@@ -30,4 +30,5 @@ def main():
 
 
 if __name__ == '__main__':
+    print(config.accounts)
     main()

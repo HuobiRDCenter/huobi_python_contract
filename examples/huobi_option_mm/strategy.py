@@ -36,6 +36,7 @@ class MyStrategy:
         self.account = config.accounts[0]["account"]
         self.access_key = config.accounts[0]["access_key"]
         self.secret_key = config.accounts[0]["secret_key"]
+        self.sign = config.accounts[0]["sign"]
         self.host = config.accounts[0]["host"]
         self.wss = config.accounts[0]["wss"]
 
@@ -100,6 +101,7 @@ class MyStrategy:
             "asset_update_callback": self.on_event_asset_update,
             "position_update_callback": self.on_event_position_update,
             "init_success_callback": self.on_event_init_success_callback,
+            "sign":self.sign
         }
         self.trader = Trade(**cc)
 
@@ -117,6 +119,7 @@ class MyStrategy:
             "asset_update_callback": self.on_event_asset_update_swap,
             "position_update_callback": self.on_event_position_update_swap,
             "init_success_callback": self.on_event_init_success_callback_swap,
+            "sign": self.sign
         }
         self.swap_trader = Trade(**swap_cc)
 

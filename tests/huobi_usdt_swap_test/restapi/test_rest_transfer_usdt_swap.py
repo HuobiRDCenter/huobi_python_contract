@@ -11,7 +11,7 @@ sys.path.append('..')
 class TestRestTransferUsdtSwap(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.api = HuobiUsdtSwapRestTransferAPI(config["host"], config["access_key"], config["secret_key"])
+        cls.api = HuobiUsdtSwapRestTransferAPI(config["host"], config["access_key"], config["secret_key"],config["sign"])
 
     def test_transfer_between_spot_swap(self):
         loop = asyncio.get_event_loop()

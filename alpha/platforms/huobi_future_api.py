@@ -1,10 +1,10 @@
 # -*- coding:utf-8 -*-
 
 """
-Huobi Option Api Module.
+Huobi Future Api Module.
 
 Author: QiaoXiaofeng
-Date:   2020/06/24
+Date:   2020/02/10
 Email:  andyjoe318@gmail.com
 """
 
@@ -18,15 +18,18 @@ import hashlib
 import datetime
 import time
 from urllib.parse import urljoin
-from alpha.utils.request import AsyncHttpRequests
-from alpha.const import USER_AGENT
+
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization
 
-__all__ = ("HuobiOptionRestAPI", )
+from alpha.utils.request import AsyncHttpRequests
+from alpha.const import USER_AGENT
 
-class HuobiOptionRestAPI:
-    """ Huobi Option REST API Client.
+
+__all__ = ("HuobiFutureRestAPI", )
+
+class HuobiFutureRestAPI:
+    """ Huobi Swap REST API client.
 
     Attributes:
         host: HTTP request host.
@@ -35,290 +38,339 @@ class HuobiOptionRestAPI:
         passphrase: API KEY Passphrase.
     """
 
-    def __init__(self, host, access_key, secret_key, sign):
-        """ initialize REST API client. """
+    def __init__(self, host, access_key, secret_key,sign):
+        """initialize REST API client."""
         self._host = host
-        self._sign = sign
         self._access_key = access_key
         self._secret_key = secret_key
+        self._sign = sign
 
-    async def get_option_info(self, contract_code=None):
-        """ Get Option Info
-        
-        Args:
-            symbol: option.such as "BTC"
-            trade_partition: option. such as "USDT"
-            contract_type: option. such as "this_week","next_week","quarter"
-            contract_code:  option. such as "BTC-USDT-200508-C-8800".
-        
-        Returns:
-            success: Success results, otherwise it's None.
-            error: Error information, otherwise it's None.
-        * Note: 1. If input `contract_code`, only matching this contract code.
-                2. If not input 'contract_code', matching all contract_codes.
-        """
-        uri = "/option-api/v1/option_contract_info"
-        params = {}
-        if contract_code:
-            params["contract_code"] = contract_code
-        success, error = await self.request("GET", uri, params)
-        return success, error
-
-    async def get_price_limit(self, contract_code):
-        """ Get swap price limit.
+    async def get_contract_info(self, symbol=None, contract_type=None, contract_code=None):
+        """ Get contract information.
 
         Args:
-            contract_code:  such as "BTC-USDT-200508-C-8800".
+            symbol: Trade pair, default `None` will return all symbols.
+            contract_type: Contract type, `this_week` / `next_week` / `quarter`, default `None` will return all types.
+            contract_code: Contract code, e.g. BTC180914.
 
         Returns:
             success: Success results, otherwise it's None.
             error: Error information, otherwise it's None.
 
         * NOTE: 1. If input `contract_code`, only matching this contract code.
-                2. If not input 'contract_code', matching all contract_codes.
+                2. If not input `contract_code`, matching by `symbol + contract_type`.
         """
-        uri = "/option-api/v1/option_price_limit"
+        uri = "/api/v1/contract_contract_info"
         params = {}
-        params["contract_code"] = contract_code
-        success, error = await self.request("GET", uri, params=params)
+        if symbol:
+            params["symbol"] = symbol
+        if contract_type:
+            params["contract_type"] = contract_type
+        if contract_code:
+            params["contract_code"] = contract_code
+        success, error = await self.request("GET", uri, params)
         return success, error
 
-    async def get_market_index(self, contract_code):
-        """ Get Market Index
+    async def get_price_limit(self, symbol=None, contract_type=None, contract_code=None):
+        """ Get contract price limit.
 
         Args:
-            contract_code: such as BTC-USDT-200508-C-8800
-        
+            symbol: Trade pair, default `None` will return all symbols.
+            contract_type: Contract type, `this_week` / `next_week` / `quarter`, default `None` will return all types.
+            contract_code: Contract code, e.g. BTC180914.
+
         Returns:
             success: Success results, otherwise it's None.
-            error: Error information, otherwise it's None. 
+            error: Error information, otherwise it's None.
 
+        * NOTE: 1. If input `contract_code`, only matching this contract code.
+                2. If not input `contract_code`, matching by `symbol + contract_type`.
         """
-        uri = "/option-api/v1/option_market_index"
+        uri = "/api/v1/contract_price_limit"
         params = {}
-        params["contract_code"] = contract_code
+        if symbol:
+            params["symbol"] = symbol
+        if contract_type:
+            params["contract_type"] = contract_type
+        if contract_code:
+            params["contract_code"] = contract_code
         success, error = await self.request("GET", uri, params=params)
         return success, error
 
-    async def get_orderbook(self, contract_code):
+    async def get_orderbook(self, symbol):
         """ Get orderbook information.
 
         Args:
-            contract_code:  such as "TC-USDT-200508-C-8800".
+            symbol: Symbol name, `BTC_CW` - current week, `BTC_NW` next week, `BTC_CQ` current quarter.
 
         Returns:
             success: Success results, otherwise it's None.
             error: Error information, otherwise it's None.
         """
-        uri = "/option-ex/market/depth"
+        uri = "/market/depth"
         params = {
-            "contract_code": contract_code,
+            "symbol": symbol,
             "type": "step0"
         }
         success, error = await self.request("GET", uri, params=params)
         return success, error
 
-    async def get_asset_info(self, symbol=None, trade_partition=None):
-        """ Get account asset information.
+    async def get_klines(self, symbol, period, size=None, sfrom=None, to=None):
+        """ Get kline information.
 
         Args:
-            symbol: such as "BTC".
-            trade_partition: such as "USDT". 
+            symbol: Symbol name, `BTC_CW` - current week, `BTC_NW` next week, `BTC_CQ` current quarter.
+            period: 1min, 5min, 15min, 30min, 60min,4hour,1day, 1mon
+            size: [1,2000]
 
         Returns:
             success: Success results, otherwise it's None.
             error: Error information, otherwise it's None.
         """
-        uri = "/option-api/v1/option_account_info"
-        body = {}
-        if symbol:
-            body["symbol"] = symbol
-        if trade_partition:
-            body["trade_partition"] = trade_partition
-        success, error = await self.request("POST", uri, body=body, auth=True)
+        uri = "/market/history/kline"
+        params = {
+            "symbol": symbol,
+            "period": period
+        }
+        if size:
+            params["size"] = size
+        if sfrom:
+            params["from"] = sfrom
+        if to:
+            params["to"] = to
+        success, error = await self.request("GET", uri, params=params)
         return success, error
 
-    async def get_position(self, symbol=None, trade_partition=None,contract_code=None):
+    async def get_asset_info(self):
+        """ Get account asset information.
+
+        Returns:
+            success: Success results, otherwise it's None.
+            error: Error information, otherwise it's None.
+        """
+        uri = "/api/v1/contract_account_info"
+        success, error = await self.request("POST", uri, auth=True)
+        return success, error
+
+    async def get_position(self, symbol=None):
         """ Get position information.
 
         Args:
-            symbol: such as "BTC".
-            trade_partition: such as "USDT".
-            contract_code: such as "BTC-USDT-200508-C-8800".
+            symbol: Currency name, e.g. BTC. default `None` will return all types.
 
         Returns:
             success: Success results, otherwise it's None.
             error: Error information, otherwise it's None.
         """
-        uri = "/option-api/v1/option_position_info"
+        uri = "/api/v1/contract_position_info"
         body = {}
         if symbol:
             body["symbol"] = symbol
-        if trade_partition:
-            body["trade_partition"] = trade_partition
-        if contract_code:
-            body["contract_code"] = contract_code
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+    
+    async def get_account_position(self, symbol=None):
+        """ Get position and account information.
+
+        Args:
+            symbol: Currency name, e.g. BTC. default `None` will return all types.
+
+        Returns:
+            success: Success results, otherwise it's None.
+            error: Error information, otherwise it's None.
+        """
+        uri = "/api/v1/contract_account_position_info"
+        body = {}
+        if symbol:
+            body["symbol"] = symbol
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
 
-    async def create_order(self, contract_code, price, quantity, direction, offset,
+    async def get_order_info(self, symbol, order_ids=[], client_order_ids=[]):
+        """ Get order information.
+
+        Args:
+            contract_code: such as "BTC".
+            order_ids: Order ID list. (different IDs are separated by ",", maximum 20 orders can be requested at one time.)
+            client_order_ids: Client Order ID list. (different IDs are separated by ",", maximum 20 orders can be requested at one time.)
+
+        Returns:
+            success: Success results, otherwise it's None.
+            error: Error information, otherwise it's None.
+        """
+        uri = "/api/v1/contract_order_info"
+        body = {
+            "symbol": symbol
+        }
+
+        if order_ids:
+            body.update({"order_id": ",".join(order_ids)})
+        if client_order_ids:
+            body.update({"client_order_id": ",".join(client_order_ids)})
+
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def create_order(self, symbol, contract_type, contract_code, price, quantity, direction, offset, lever_rate,
                            order_price_type, client_order_id=None):
         """ Create an new order.
 
         Args:
-            contract_code: such as "BTC-USDT-200508-C-8800".
+            symbol: Currency name, e.g. BTC.
+            contract_type: Contract type, `this_week` / `next_week` / `quarter`.
+            contract_code: Contract code, e.g. BTC180914.
             price: Order price.
             quantity: Order amount.
             direction: Transaction direction, `buy` / `sell`.
             offset: `open` / `close`.
-            order_price_type: Order type, `limit` - limit order, `opponent` - market order.etc.
-            client_order_id: long. 
+            lever_rate: Leverage rate, 10 or 20.
+            order_price_type: Order type, `limit` - limit order, `opponent` - market order.
 
         Returns:
             success: Success results, otherwise it's None.
             error: Error information, otherwise it's None.
         """
-        uri = "/option-api/v1/option_order"
+        uri = "/api/v1/contract_order"
         body = {
+            "symbol": symbol,
+            "contract_type": contract_type,
             "contract_code": contract_code,
             "price": price,
             "volume": quantity,
             "direction": direction,
             "offset": offset,
+            "lever_rate": lever_rate,
             "order_price_type": order_price_type
         }
+
         if client_order_id:
             body.update({"client_order_id": client_order_id})
+
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
     
     async def create_orders(self, orders_data):
         """ Batch Create orders.
             orders_data = {'orders_data': [
-               {  
-                'contract_code':'BTC-USDT-200508-C-8800',  'client_order_id':'', 
+               {'symbol': 'BTC', 'contract_type': 'quarter',  
+                'contract_code':'BTC181228',  'client_order_id':'', 
                 'price':1, 'volume':1, 'direction':'buy', 'offset':'open', 
-                'order_price_type':'limit'},
-               { 
-                'contract_code':'BTC-USDT-200508-C-8800', 'client_order_id':'', 
+                'leverRate':20, 'orderPriceType':'limit'},
+               {'symbol': 'BTC','contract_type': 'quarter', 
+                'contract_code':'BTC181228', 'client_order_id':'', 
                 'price':2, 'volume':2, 'direction':'buy', 'offset':'open', 
-                'order_price_type':'limit'}]}   
+                'leverRate':20, 'orderPriceType':'limit'}]}   
         """
-        uri = "/option-api/v1/option_batchorder"
+        uri = "/api/v1/contract_batchorder"
         body = orders_data
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
         
 
-    async def revoke_order(self, trade_partition="", order_id="", client_order_id=""):
+    async def revoke_order(self, symbol, order_id=None, client_order_id=None):
         """ Revoke an order.
 
         Args:
-            trade_partition: trade partition such as "USDT".
+            symbol: Currency name, e.g. BTC.
             order_id: Order ID.
-            client_order_id: client order.
+            client_order_id: Custom Order ID.
 
         Returns:
             success: Success results, otherwise it's None.
             error: Error information, otherwise it's None.
         """
-        uri = "/option-api/v1/option_cancel"
-        body = {}
-        if trade_partition:
-            body.update({'trade_partition': trade_partition})
-        if order_id:
-            body.update({'order_id': order_id})
-        if client_order_id:
-            body.update({'client_order_id': client_order_id})
-        success, error = await self.request("POST", uri, body=body, auth=True)
-        return success, error
-
-    async def revoke_orders(self, trade_partition="", order_ids=[], client_order_ids=[]):
-        """ Revoke multiple orders.
-
-        Args:
-            trade_partition: trade partition such as "USDT".
-            order_ids: Order ID list.
-
-        Returns:
-            success: Success results, otherwise it's None.
-            error: Error information, otherwise it's None.
-        """
-        uri = "/option-api/v1/option_cancel"
-        body = {
-        }
-        if trade_partition:
-            body.update({'trade_partition': trade_partition})
-        if order_ids:
-            body.update({'order_id': ",".join(order_ids)})
-        if client_order_ids:
-            body.update({'client_order_id': ",".join(client_order_ids)})
-        success, error = await self.request("POST", uri, body=body, auth=True)
-        return success, error
-
-    async def revoke_order_all(self, symbol = "", trade_partition="", contract_type="", contract_code=""):
-        """ Revoke all orders.
-
-        Args:
-            symbol: such as "BTC".
-            trade_partition: such as "USDT".
-            contract_type: such as "this_week", "next_week", "quarter".
-            contract_code: such as "BTC-USDT-200508-C-8800".
-
-
-        Returns:
-            success: Success results, otherwise it's None.
-            error: Error information, otherwise it's None.
-
-        """
-        uri = "/option-api/v1/option_cancelall"
-        body = {
-        }
-        if symbol:
-            body.update({"symbol": symbol})
-        if trade_partition:
-            body.update({"trade_partition": trade_partition})
-        if contract_type:
-            body.update({"contract_type": contract_type})
-        if contract_code:
-            body.update({"contract_code": contract_code})
-        success, error = await self.request("POST", uri, body=body, auth=True)
-        return success, error
-
-    async def get_order_info(self, symbol, trade_partition="", order_ids=[], client_order_ids=[]):
-        """ Get order information.
-
-        Args:
-            symbol: such as "BTC".
-            trade_partition: such as "USDT".
-            contract_code: such as "BTC-USDT-200508-C-8800".
-            order_ids: Order ID list. (different IDs are separated by ",", maximum 50 orders can be requested at one time.)
-            client_order_ids: Client Order ID list. (different IDs are separated by ",", maximum 50 orders can be requested at one time.)
-
-        Returns:
-            success: Success results, otherwise it's None.
-            error: Error information, otherwise it's None.
-        """
-        uri = "/option-api/v1/option_order_info"
+        uri = "/api/v1/contract_cancel"
         body = {
             "symbol": symbol
         }
-        if trade_partition:
-            body.update({"trade_partition": trade_partition})
-        if order_ids:
-            body.update({"order_id": ",".join(order_ids)})
-        if client_order_ids:
-            body.update({"client_order_id": ",".join(client_order_ids)})
+        if order_id:
+            body["order_id"] = order_id
+        if client_order_id:
+            body["client_order_id"] = client_order_id
+        
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
 
-    async def get_open_orders(self, contract_code="", symbol="", trade_partition="",  index=1, size=50):
+    async def revoke_orders(self, symbol, order_ids=None, client_order_ids=None):
+        """ Revoke multiple orders.
+
+        Args:
+            symbol: Currency name, e.g. BTC.
+            order_ids: Order ID list.
+            client_order_ids: Client Order Ids.
+
+        Returns:
+            success: Success results, otherwise it's None.
+            error: Error information, otherwise it's None.
+        """
+        uri = "/api/v1/contract_cancel"
+        body = {
+            "symbol": symbol
+        }
+        if order_ids:
+            body["order_id"] = ",".join(order_ids)
+        if client_order_ids:
+            body["client_order_id"] = ",".join(client_order_ids)
+        
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def revoke_order_all(self, symbol, contract_code=None, contract_type=None):
+        """ Revoke all orders.
+
+        Args:
+            symbol: Currency name, e.g. BTC.
+            contract_type: Contract type, `this_week` / `next_week` / `quarter`, default `None` will return all types.
+            contract_code: Contract code, e.g. BTC180914.
+
+        Returns:
+            success: Success results, otherwise it's None.
+            error: Error information, otherwise it's None.
+
+        * NOTE: 1. If input `contract_code`, only matching this contract code.
+                2. If not input `contract_code`, matching by `symbol + contract_type`.
+        """
+        uri = "/api/v1/contract_cancelall"
+        body = {
+            "symbol": symbol,
+        }
+        if contract_code:
+            body["contract_code"] = contract_code
+        if contract_type:
+            body["contract_type"] = contract_type
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def get_order_info(self, symbol, order_ids=None, client_order_ids=None):
+        """ Get order information.
+
+        Args:
+            symbol: Currency name, e.g. BTC.
+            order_ids: Order ID list. (different IDs are separated by ",", maximum 20 orders can be withdrew at one time.)
+            client_order_ids: Client order ID list.(Invalid for 24 hours.)
+
+        Returns:
+            success: Success results, otherwise it's None.
+            error: Error information, otherwise it's None.
+        """
+        uri = "/api/v1/contract_order_info"
+        body = {
+            "symbol": symbol
+        }
+
+        if order_ids:
+            body["order_id"] = ",".join(order_ids)
+        if client_order_ids:
+            body["client_order_id"] = ",".join(client_order_ids)
+
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def get_open_orders(self, symbol, index=1, size=50):
         """ Get open order information.
 
         Args:
-            symbol: such as "BTC".
-            trade_partition: such as "USDT".
-            contract_code: such as "BTC-USDT-200508-C-8800".
+            symbol: Currency name, e.g. BTC.
             index: Page index, default 1st page.
             size: Page size, Default 20，no more than 50.
 
@@ -326,69 +378,34 @@ class HuobiOptionRestAPI:
             success: Success results, otherwise it's None.
             error: Error information, otherwise it's None.
         """
-        uri = "/option-api/v1/option_openorders"
+        uri = "/api/v1/contract_openorders"
         body = {
+            "symbol": symbol,
             "page_index": index,
             "page_size": size
         }
-
-        if symbol:
-            body.update({"symbol": symbol})
-        if trade_partition:
-            body.update({"trade_partition": trade_partition})
-        if contract_code:
-            body.update({"contract_code": contract_code})
-
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
     
-    async def get_history_orders(self, symbol,  trade_type, stype, status, \
-        create_date, trade_partition="", contract_code="", order_type="", page_index=0, page_size=50):
-        """ Get history orders information.
-
+    async def get_api_trading_status(self):
+        """ Get api trading status.
         Args:
-            symbol: such as "BTC".
-            trade_partition: such as "USDT".
-            contract_code: such as "BTC-USDT-200508-C-8800".
-            trade_type: 0:all,1: buy long,2: sell short,3: buy short,4: sell long,5: sell liquidation,6: buy liquidation,7:Delivery long,8: Delivery short
-            stype: 1:All Orders,2:Order in Finished Status
-            status: status: 1. Ready to submit the orders; 2. Ready to submit the orders; 3. Have sumbmitted the orders; \
-                4. Orders partially matched; 5. Orders cancelled with partially matched; 6. Orders fully matched; 7. Orders cancelled; 11. Orders cancelling.
-            create_date: any positive integer available. Requesting data beyond 90 will not be supported, otherwise, system will return trigger history data \
-                within the last 90 days by default.
-            page_index: default 1st page
-            page_size: default page size 20. 50 max.
-        
+            None.
         Returns:
-            success: Success results, otherwise it's None.
-            error: Error information, otherwise it's None.
-
+            refer to https://huobiapi.github.io/docs/dm/v1/cn/#api-5
         """
-        uri = "/option-api/v1/option_hisorders"
-        body = {
-            "symbol": symbol,
-            "trade_type": trade_type,
-            "type": stype,
-            "status": status,
-            "create_date": create_date,
-            "page_index": page_index,
-            "page_size": page_size
-        }
-        if trade_partition:
-            body.update({"trade_partition": trade_partition})
-        if contract_code:
-            body.update({"contract_code": contract_code})
-        if order_type:
-            body.update({"order_type": order_type})
-        success, error = await self.request("POST", uri, body=body, auth=True)
+        uri = "/api/v1/contract_api_trading_status"
+        success, error = await self.request("GET", uri, body=None, auth=True)
         return success, error
-    
-    async def create_trigger_order(self, contract_code, trigger_type, \
-        trigger_price, order_price, order_price_type, volume, direction, offset):
+
+    async def create_trigger_order(self, symbol, contract_type, trigger_type, \
+        trigger_price, order_price, order_price_type, volume, direction, offset, lever_rate, contract_code=None):
         """ Create trigger order
 
         Args:
-            contract_code: contract code,such as BTC-USDT-200508-C-8800.
+            symbol: symbol,such as BTC.
+            contract_type: contract type,such as this_week,next_week,quarter
+            contract_code: contract code,such as BTC190903. If filled,the above symbol and contract_type will be ignored.
             trigger_type: trigger type,such as ge,le.
             trigger_price: trigger price.
             order_price: order price.
@@ -396,68 +413,67 @@ class HuobiOptionRestAPI:
             volume: volume.
             direction: "buy" or "sell".
             offset: "open" or "close".
+            lever_rate: lever rate.
         
         Returns:
-            refer to https://huobiapi.github.io/docs/option/v1/cn/#03b4e6fa59
+            refer to https://huobiapi.github.io/docs/dm/v1/cn/#97a9bd626d
 
         """
-        uri = "/option-api/v1/option_trigger_order"
+        uri = "/api/v1/contract_trigger_order"
         body = {
-            "contract_code": contract_code,
+            "symbol": symbol,
+            "contract_type": contract_type,
             "trigger_type": trigger_type,
             "trigger_price": trigger_price,
             "order_price": order_price,
             "order_price_type": order_price_type,
             "volume": volume,
             "direction": direction,
-            "offset": offset
+            "offset": offset,
+            "lever_rate": lever_rate
         }
+        if contract_code:
+            body.update({"contract_code": contract_code})
 
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
     
-    async def revoke_trigger_order(self, symbol, order_id, trade_partition=None):
+    async def revoke_trigger_order(self, symbol, order_id):
         """ Revoke trigger order
 
         Args: 
             symbol: symbol,such as "BTC".
-            trade_partition: such as "USDT".
             order_id: order ids.multiple orders need to be joined by ','.
 
         Returns:
-            refer to https://huobiapi.github.io/docs/option/v1/cn/#03b4e6fa59
+            refer to https://huobiapi.github.io/docs/dm/v1/cn/#0d42beab34
 
         """
-        uri = "/option-api/v1/option_trigger_cancel"
+        uri = "/api/v1/contract_trigger_cancel"
         body = {
             "symbol": symbol,
             "order_id": order_id
         }
-        if trade_partition:
-            body.update({"trade_partition": trade_partition})
+        
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
     
-    async def revoke_all_trigger_orders(self, symbol, trade_partition=None, contract_code=None, contract_type=None):
+    async def revoke_all_trigger_orders(self, symbol, contract_code=None, contract_type=None):
         """ Revoke all trigger orders
 
         Args:
             symbol: symbol, such as "BTC"
-            trade_partition: such as "USDT".
-            contract_code: contract_code, such as BTC-USDT-200508-C-8800.
+            contract_code: contract_code, such as BTC180914.
             contract_type: contract_type, such as this_week, next_week, quarter.
         
         Returns:
-            refer to https://huobiapi.github.io/docs/option/v1/cn/#2857693297
+            refer to https://huobiapi.github.io/docs/dm/v1/cn/#3d2471d520
 
         """
-        uri = "/option-api/v1/option_trigger_cancelall"
+        uri = "/api/v1/contract_trigger_cancelall"
         body = {
             "symbol": symbol
         }
-
-        if trade_partition:
-            body.update({"trade_partition": trade_partition})
         if contract_code:
             body.update({"contract_code": contract_code})
         if contract_type:
@@ -466,25 +482,22 @@ class HuobiOptionRestAPI:
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
     
-    async def get_trigger_openorders(self, symbol, trade_partition=None, contract_code=None, page_index=None, page_size=None):
+    async def get_trigger_openorders(self, symbol, contract_code=None, page_index=None, page_size=None):
         """ Get trigger openorders
         Args: 
             symbol: symbol, such as "BTC"
-            trade_partition: such as "USDT".
             contract_code: contract code, such as BTC180914.
             page_index: page index.1 by default.
             page_size: page size.20 by default.
         
         Returns: 
-            refer to https://huobiapi.github.io/docs/option/v1/cn/#362fe20088
+            refer to https://huobiapi.github.io/docs/dm/v1/cn/#b5280a27b3
         """
 
-        uri = "/option-api/v1/option_trigger_openorders"
+        uri = "/api/v1/contract_trigger_openorders"
         body = {
             "symbol": symbol,
         }
-        if trade_partition:
-            body.update({"trade_partition": trade_partition})
         if contract_code:
             body.update({"contract_code": contract_code})
         if page_index:
@@ -495,12 +508,11 @@ class HuobiOptionRestAPI:
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
     
-    async def get_trigger_hisorders(self, symbol, trade_type, status, create_date, trade_partition=None, contract_code=None, page_index=None, page_size=None):
+    async def get_trigger_hisorders(self, symbol, trade_type, status, create_date, contract_code=None, page_index=None, page_size=None):
         """ Get trigger hisorders
         
         Args:
             symbol: symbol,such as "BTC"
-            trade_partition: such as "USDT".
             contract_code: contract code.
             trade_type: trade type. 0:all 1:open buy 2:open sell 3:close buy 4:close sell
             status: status. 0: orders finished. 4: orders submitted. 5: order filled. 6:order cancelled. multiple status is joined by ','
@@ -509,20 +521,17 @@ class HuobiOptionRestAPI:
             page_size: 20 by default.50 at most.
 
         Returns:
-            https://huobiapi.github.io/docs/option/v1/cn/#37aeb9f3bd
+            https://huobiapi.github.io/docs/dm/v1/cn/#37aeb9f3bd
 
         """
 
-        uri = "/option-api/v1/option_trigger_hisorders"
+        uri = "/api/v1/contract_trigger_hisorders"
         body = {
             "symbol": symbol,
             "trade_type": trade_type,
             "status": status,
             "create_date": create_date,
         }
-
-        if trade_partition:
-            body.update({"trade_partition": trade_partition})
         if contract_code:
             body.update({"contract_code": contract_code})
         if page_index:
@@ -533,26 +542,64 @@ class HuobiOptionRestAPI:
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
     
+    async def lightning_close_position(self, symbol, contract_type, contract_code, volume, direction, client_order_id, \
+        order_price_type):
+        """ Close position.
+        
+        Args:
+            symbol: string.  eg: 'BTC'
+            contract_type: string. eg: 'this_week'\'next_week'\'quarter'
+            contract_code: string. eg: 'BTC190903'
+            volume: int. eg: 1
+            direction: string. eg: 'buy' or 'sell'
+            client_order_id: int. eg: 11
+            order_price_type: string. eg: "lightning"\"lightning_fok"\"lightning_ioc"
+        
+        Returns:
+            https://docs.huobigroup.com/docs/dm/v1/cn/#669c2a2e3d
 
-    async def transfer_between_spot_option(self,  symbol, amount, from_, to, tradePartition="USDT"):
-        """ Do transfer between spot and option.
+        """
+        uri = "/api/v1/lightning_close_position"
+        body = {
+                "volume": volume, 
+                "direction": direction, 
+               }
+
+        if symbol:
+            body.update({"symbol": symbol})
+        
+        if contract_type:
+            body.update({"contract_type": contract_type})
+        
+        if contract_code:
+            body.update({"contract_code": contract_code})
+        
+        if client_order_id:
+            body.update({"client_order_id": client_order_id})
+        
+        if order_price_type:
+            body.update({"order_price_type": order_price_type})
+        
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+
+    async def transfer_between_spot_future(self, symbol, amount, type_s):
+        """ Do transfer between spot and future.
         Args:
             symbol: currency,such as btc,eth,etc.
             amount: transfer amount.pls note the precision digit is 8.
-            from_: 'spot' or 'option'
-            to: 'spot' or 'option',
-            tradePartition: trade partition.
-            
+            type_s: "pro-to-futures","futures-to-pro"
+
         """
         body = {
                 "currency": symbol,
                 "amount": amount,
-                "from": from_,
-                "to": to,
-                "tradePartition": tradePartition
+                "type": type_s
                 }
 
-        uri = "https://api.huobi.pro/v2/account/transfer"
+        uri = 'https://api.huobi.pro/v1/futures/transfer'
+
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
 
@@ -574,22 +621,22 @@ class HuobiOptionRestAPI:
         if uri.startswith("http://") or uri.startswith("https://"):
             url = uri
         else:
-            url = self._host + uri
+            url = urljoin(self._host, uri)
 
         if auth:
             timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
             params = params if params else {}
-            if (self._sign == "256"):
+            if self._sign == "256":
 
                 params.update({"AccessKeyId": self._access_key,
                                "SignatureMethod": "HmacSHA256",
                                "SignatureVersion": "2",
                                "Timestamp": timestamp})
             else:
-                params.update({"AccessKeyId": self._access_key,
-                               "SignatureMethod": "Ed25519",
-                               "SignatureVersion": "2",
-                               "Timestamp": timestamp})
+                params.update({"accessKey": self._access_key,
+                               "signatureMethod": "Ed25519",
+                               "signatureVersion": "2",
+                               "timestamp": timestamp})
 
             params["Signature"] = self.generate_signature(method, params, uri)
 
@@ -626,6 +673,7 @@ class HuobiOptionRestAPI:
             encode_params = urllib.parse.urlencode(sorted_params)
             payload = [method, host_url, request_path, encode_params]
             payload = "\n".join(payload)
+
             payload = payload.encode(encoding="UTF8")
             secret_key = self._secret_key.encode(encoding="utf8")
             digest = hmac.new(secret_key, payload, digestmod=hashlib.sha256).digest()
@@ -652,10 +700,8 @@ class HuobiOptionRestAPI:
                 password=None,
                 backend=default_backend()
             )
-
             # 使用 Ed25519 签名
             signature = private_key.sign(payload)
-
             # 将签名编码为 Base64
             signature_b64 = base64.b64encode(signature).decode()
             return signature_b64
