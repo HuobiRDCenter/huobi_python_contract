@@ -224,6 +224,38 @@ class HuobiUsdtSwapRestMarketAPI:
         success, error = await self.request("GET", uri, params=params)
         return success, error
 
+    async def market_risk_limit(self, contract_code, contract_type, margin_mode, tier):
+
+        uri = "/index/market/history/linear_swap_basis"
+        params = {
+            "contract_code": contract_code,
+            "contract_type": contract_type,
+            "margin_mode": margin_mode,
+            "tier": tier
+        }
+
+        success, error = await self.request("GET", uri, params=params)
+        return success, error
+
+    async def market_assets_deduction_currency(self):
+
+        uri = "/v5/assets_deduction_currency"
+        params = {
+        }
+
+        success, error = await self.request("GET", uri, params=params)
+        return success, error
+
+    async def multi_assets_margin_list(self, multi_assets):
+
+        uri = "/v5/market/multi_assets_margin/list"
+        params = {
+            "multi_assets": multi_assets
+        }
+
+        success, error = await self.request("GET", uri, params=params)
+        return success, error
+
     async def request(self, method, uri, params=None, body=None, headers=None, auth=False):
         """ Do HTTP request.
 

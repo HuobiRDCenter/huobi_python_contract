@@ -1,6 +1,6 @@
 import json
 
-from alpha.utils.http_utils import post
+from alpha.utils.http_utils import post, get_url_suffix, get
 
 
 class RestTradeUsdtSwap:
@@ -74,3 +74,74 @@ class RestTradeUsdtSwap:
     def swap_position_side(self, data: dict = None) -> json:
         path = "/linear-swap-api/v1/swap_position_side"
         return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_order(self, data: dict = None) -> json:
+        path = "/v5/trade/order"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_batchorder(self, data: dict = None) -> json:
+        path = "/v5/trade/batchorder"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_cancel_order(self, data: dict = None) -> json:
+        path = "/v5/trade/order"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_cancel_batchOrders(self, data: dict = None) -> json:
+        path = "/v5/trade/batchOrders"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_cancel_allOrders(self, data: dict = None) -> json:
+        path = "/v5/trade/allOrders"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_position(self, data: dict = None) -> json:
+        path = "/v5/trade/position"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_positionAll(self, data: dict = None) -> json:
+        path = "/v5/trade/positionAll"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_porder_opens(self, data: dict = None) -> json:
+        path = "/v5/trade/order/opens"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_order_trades(self, params: dict = None) -> json:
+        path = "/api/v5/trade/order/trades"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def swap_trade_order_history(self, params: dict = None) -> json:
+        path = "/api/v5/trade/order/history"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def swap_trade_position_opens(self, params: dict = None) -> json:
+        path = "/v5/trade/position/opens"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def swap_trade_position_history(self, params: dict = None) -> json:
+        path = "/v5/trade/position/history"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def swap_trade_position_lever(self, params: dict = None) -> json:
+        path = "/v5/position/lever"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def swap_position_lever(self, data: dict = None) -> json:
+        path = "/v5/position/lever"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def swap_trade_position_mode(self, params: dict = None) -> json:
+        path = "/api/v5/position/mode"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def swap_trade_position_riskLimit(self, params: dict = None) -> json:
+        path = "/v5/position/riskLimit"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)

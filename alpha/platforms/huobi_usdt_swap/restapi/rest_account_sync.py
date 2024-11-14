@@ -96,3 +96,12 @@ class RestAccountUsdtSwap:
         path = "/linear-swap-api/v1/swap_api_trading_status"
         path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
         return get(self.host, path, params)
+
+    def swap_api_account_balance(self, params: dict = None) -> json:
+        path = "/v5/account/balance"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def swap_multi_assets_margin(self, data: dict = None) -> json:
+        path = "/v5/account/multi_assets_margin"
+        return post(self.access_key, self.secret_key, self.host, path, data)
