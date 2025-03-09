@@ -429,7 +429,7 @@ class HuobiUsdtSwapRestTradeAPI:
     async def swap_trade_order(self, contract_code, margin_mode, position_side, side, type, price_match,
                                             client_order_id, price, volume, reduce_only, time_in_force, tp_trigger_price,
                                             tp_order_price, tp_type, tp_trigger_price_type, sl_trigger_price, sl_order_price,
-                                            sl_type, sl_trigger_price_type):
+                                            sl_type, sl_trigger_price_type, price_protect, trigger_protect):
 
         uri = "/v5/trade/order"
         body = {
@@ -461,7 +461,7 @@ class HuobiUsdtSwapRestTradeAPI:
                                             tp_order_price, tp_type, tp_trigger_price_type, sl_trigger_price, sl_order_price,
                                             sl_type, sl_trigger_price_type):
 
-        uri = "/v5/trade/batchorder "
+        uri = "/v5/trade/batch_orders"
         body = {
             "contract_code": contract_code,
             "margin_mode": margin_mode,
@@ -488,7 +488,7 @@ class HuobiUsdtSwapRestTradeAPI:
 
     async def swap_trade_cancel_order(self, contract_code, order_id, client_order_id):
 
-        uri = "/v5/trade/order"
+        uri = "/v5/trade/cancel_order"
         body = {
             "contract_code": contract_code,
             "order_id": order_id,
@@ -497,9 +497,9 @@ class HuobiUsdtSwapRestTradeAPI:
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
 
-    async def swap_trade_cancel_batchOrders(self, contract_code, order_id, client_order_id):
+    async def swap_trade_cancel_batchOrders(self, contract_code, order_id, client_order_id, price_protect, trigger_protect):
 
-        uri = "/v5/trade/batchOrders"
+        uri = "/v5/trade/cancel_batch_orders"
         body = {
             "contract_code": contract_code,
             "order_id": order_id,
@@ -510,7 +510,7 @@ class HuobiUsdtSwapRestTradeAPI:
 
     async def swap_trade_cancel_allOrders(self, contract_code, side, position_side):
 
-        uri = "/v5/trade/allOrders"
+        uri = "/v5/trade/cancel_all_orders"
         body = {
             "contract_code": contract_code,
             "side": side,
@@ -533,7 +533,7 @@ class HuobiUsdtSwapRestTradeAPI:
 
     async def swap_trade_positionAll(self):
 
-        uri = "/v5/trade/positionAll"
+        uri = "/v5/trade/position_all"
         body = {
         }
         success, error = await self.request("POST", uri, body=body, auth=True)
@@ -558,7 +558,7 @@ class HuobiUsdtSwapRestTradeAPI:
 
     async def swap_trade_order_trades(self, contract_code, order_id, client_order_id, start_time, end_time, from_, limit, direct):
 
-        uri = "/api/v5/trade/order/trades"
+        uri = "/api/V5/trade/order/details"
         params = {
             "contract_code": contract_code,
             "order_id": order_id,
@@ -573,15 +573,12 @@ class HuobiUsdtSwapRestTradeAPI:
         success, error = await self.request("GET", uri, params=params, auth=True)
         return success, error
 
-    async def swap_trade_order_history(self, contract_code, side, order_id, client_order_id, state, type, price_match,
-                                       start_time, end_time, from_, limit, direct):
+    async def swap_trade_order_history(self, contract_code, state, type, price_match,
+                                       start_time, end_time, from_, limit, direct, business_type):
 
         uri = "/api/v5/trade/order/history"
         params = {
             "contract_code": contract_code,
-            "side": side,
-            "order_id": order_id,
-            "client_order_id": client_order_id,
             "start_time": start_time,
             "end_time": end_time,
             "from_": from_,

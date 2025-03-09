@@ -248,7 +248,7 @@ class HuobiUsdtSwapRestMarketAPI:
 
     async def multi_assets_margin_list(self, multi_assets):
 
-        uri = "/v5/market/multi_assets_margin/list"
+        uri = "/v5/market/multi_assets_margin"
         params = {
             "multi_assets": multi_assets
         }
