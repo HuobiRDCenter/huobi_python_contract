@@ -58,6 +58,8 @@ class HuobiSwapMarket(Websocket):
         self._depth_update_callback = kwargs.get("depth_update_callback")
         self._detail_update_callback = kwargs.get("detail_update_callback")
         self._bbo_update_callback = kwargs.get("bbo_update_callback")
+        self._voucher = kwargs.get("voucher")
+        self._voucher_value = kwargs.get("voucher_value")
 
         self._c_to_s = {}  # {"channel": "symbol"}
         self._orderbooks = deque(maxlen=self._orderbooks_length) 
