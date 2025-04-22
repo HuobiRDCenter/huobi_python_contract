@@ -1,6 +1,6 @@
 import json
 
-from alpha.utils.http_utils import get
+from alpha.utils.http_utils import get, get_url_suffix
 
 
 class RestMarketUsdtSwap:
@@ -56,3 +56,17 @@ class RestMarketUsdtSwap:
     def linear_swap_basis(self, params: dict = None) -> json:
         path = "/index/market/history/linear_swap_basis"
         return get(self.host, path, params)
+
+    def market_risk_limit(self, params: dict = None) -> json:
+        path = "/v5/market/risk_limit"
+        return get(self.host, path, params)
+
+    def market_assets_deduction_currency(self, params: dict = None) -> json:
+        path = "/v5/assets_deduction_currency"
+        return get(self.host, path, params)
+
+    def multi_assets_margin_list(self, params: dict = None) -> json:
+        path = "/v5/market/multi_assets_margin/list"
+        return get(self.host, path, params)
+
+

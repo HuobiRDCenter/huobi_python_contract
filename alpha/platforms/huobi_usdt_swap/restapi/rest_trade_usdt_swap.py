@@ -426,6 +426,243 @@ class HuobiUsdtSwapRestTradeAPI:
         success, error = await self.request("GET", uri, params=params, auth=True)
         return success, error
 
+    async def swap_trade_order(self, contract_code, margin_mode, position_side, side, type, price_match,
+                                            client_order_id, price, volume, reduce_only, time_in_force, tp_trigger_price,
+                                            tp_order_price, tp_type, tp_trigger_price_type, sl_trigger_price, sl_order_price,
+                                            sl_type, sl_trigger_price_type, price_protect, trigger_protect):
+
+        uri = "/v5/trade/order"
+        body = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode,
+            "position_side": position_side,
+            "side": side,
+            "type": type,
+            "price_match": price_match,
+            "client_order_id": client_order_id,
+            "price": price,
+            "volume": volume,
+            "reduce_only": reduce_only,
+            "time_in_force": time_in_force,
+            "tp_trigger_price": tp_trigger_price,
+            "tp_order_price": tp_order_price,
+            "tp_trigger_price_type": tp_trigger_price_type,
+            "sl_trigger_price": sl_trigger_price,
+            "sl_order_price": sl_order_price,
+            "sl_type": sl_type,
+            "tp_type": tp_type,
+            "sl_trigger_price_type": sl_trigger_price_type
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_batchorder(self, contract_code, margin_mode, position_side, side, type, price_match,
+                                            client_order_id, price, volume, reduce_only, time_in_force, tp_trigger_price,
+                                            tp_order_price, tp_type, tp_trigger_price_type, sl_trigger_price, sl_order_price,
+                                            sl_type, sl_trigger_price_type):
+
+        uri = "/v5/trade/batch_orders"
+        body = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode,
+            "position_side": position_side,
+            "side": side,
+            "type": type,
+            "price_match": price_match,
+            "client_order_id": client_order_id,
+            "price": price,
+            "volume": volume,
+            "reduce_only": reduce_only,
+            "time_in_force": time_in_force,
+            "tp_trigger_price": tp_trigger_price,
+            "tp_order_price": tp_order_price,
+            "tp_trigger_price_type": tp_trigger_price_type,
+            "sl_trigger_price": sl_trigger_price,
+            "sl_order_price": sl_order_price,
+            "sl_type": sl_type,
+            "tp_type": tp_type,
+            "sl_trigger_price_type": sl_trigger_price_type
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_cancel_order(self, contract_code, order_id, client_order_id):
+
+        uri = "/v5/trade/cancel_order"
+        body = {
+            "contract_code": contract_code,
+            "order_id": order_id,
+            "client_order_id": client_order_id
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_cancel_batchOrders(self, contract_code, order_id, client_order_id, price_protect, trigger_protect):
+
+        uri = "/v5/trade/cancel_batch_orders"
+        body = {
+            "contract_code": contract_code,
+            "order_id": order_id,
+            "client_order_id": client_order_id
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_cancel_allOrders(self, contract_code, side, position_side):
+
+        uri = "/v5/trade/cancel_all_orders"
+        body = {
+            "contract_code": contract_code,
+            "side": side,
+            "position_side": position_side
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_position(self, contract_code, margin_mode, position_side, client_order_id):
+
+        uri = "/v5/trade/position"
+        body = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode,
+            "position_side": position_side,
+            "client_order_id": client_order_id
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_positionAll(self):
+
+        uri = "/v5/trade/position_all"
+        body = {
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_porder_opens(self, contract_code, side, margin_mode, order_id, client_order_id, from_, limit,
+                                      direct):
+
+        uri = "/v5/trade/positionAll"
+        body = {
+            "contract_code": contract_code,
+            "side": side,
+            "margin_mode": margin_mode,
+            "order_id": order_id,
+            "client_order_id": client_order_id,
+            "from": from_,
+            "limit": limit,
+            "direct": direct,
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_order_trades(self, contract_code, order_id, client_order_id, start_time, end_time, from_, limit, direct):
+
+        uri = "/api/V5/trade/order/details"
+        params = {
+            "contract_code": contract_code,
+            "order_id": order_id,
+            "client_order_id": client_order_id,
+            "start_time": start_time,
+            "end_time": end_time,
+            "from_": from_,
+            "limit": limit,
+            "direct": direct
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def swap_trade_order_history(self, contract_code, state, type, price_match,
+                                       start_time, end_time, from_, limit, direct, business_type):
+
+        uri = "/api/v5/trade/order/history"
+        params = {
+            "contract_code": contract_code,
+            "start_time": start_time,
+            "end_time": end_time,
+            "from_": from_,
+            "limit": limit,
+            "state": state,
+            "type": type,
+            "price_match": price_match,
+            "direct": direct,
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def swap_trade_position_opens(self, contract_code):
+
+        uri = "/api/v5/trade/order/history"
+        params = {
+            "contract_code": contract_code
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def swap_trade_position_history(self, contract_code, contract_type, margin_mode,
+                                       start_time, end_time, from_, limit, direct):
+
+        uri = "/v5/trade/position/history"
+        params = {
+            "contract_code": contract_code,
+            "contract_type": contract_type,
+            "margin_mode": margin_mode,
+            "start_time": start_time,
+            "end_time": end_time,
+            "from": from_,
+            "limit": limit,
+            "direct": direct
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def swap_trade_position_lever(self, contract_code, margin_mode):
+
+        uri = "/v5/position/lever"
+        params = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def swap_position_lever(self, contract_code, margin_mode, lever_rate):
+
+        uri = "/v5/position/lever"
+        body = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode,
+            "lever_rate": lever_rate
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_position_mode(self):
+
+        uri = "/api/v5/position/mode"
+        params = {
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def swap_trade_position_riskLimit(self, contract_code, margin_mode, position_side):
+
+        uri = "/v5/position/riskLimit"
+        params = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode,
+            "position_side": position_side
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
     async def request(self, method, uri, params=None, body=None, headers=None, auth=False):
         """ Do HTTP request.
 
