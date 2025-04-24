@@ -15,7 +15,8 @@
             "host": "https://api.hbdm.vn",
             "wss": "wss://api.hbdm.vn",
             "access_key": "access key",
-            "secret_key": "secret key"
+            "secret_key": "secret key",
+            "sign": ""
         },
         {
             "platform": "huobi_swap",

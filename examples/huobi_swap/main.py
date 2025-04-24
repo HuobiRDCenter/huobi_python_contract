@@ -20,10 +20,12 @@ def initialize():
 def main():
     if len(sys.argv) > 1:
         config_file = sys.argv[1]
+        print(1)
     else:
         config_file = None
 
     from alpha.quant import quant
+
     quant.initialize(config_file)
     initialize()
     quant.start()

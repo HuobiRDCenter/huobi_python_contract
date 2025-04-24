@@ -1,6 +1,8 @@
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
+
 import websocket
 import threading
-
 import gzip
 import json
 from datetime import datetime
@@ -14,7 +16,7 @@ from alpha.utils import logger
 
 
 class WsUtils:
-    def __init__(self, path: str, host: str = None, access_key: str = None, secret_key: str = None):
+    def __init__(self, path: str, host: str = None, access_key: str = None, secret_key: str = None,sign:str="256"):
         self._path = path
         if host is None:
             host = "api.hbdm.com"
@@ -28,11 +30,11 @@ class WsUtils:
                                           on_error=self._on_error)
         self._worker = threading.Thread(target=self._ws.run_forever)
         self._worker.start()
-
         self._has_open = False
         self._auth = True
         self._access_key = access_key
         self._secret_key = secret_key
+        self._sign = sign
         if access_key is not None or secret_key is not None:
             self._auth = False
 
@@ -47,38 +49,70 @@ class WsUtils:
     def _send_auth_data(self, method: str, path: str, host: str, access_key: str, secret_key: str):
         # timestamp
         timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
+        if self._sign=="256":
+            # get Signature
+            suffix = 'AccessKeyId={}&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp={}'.format(
+                access_key, parse.quote(timestamp))
+            payload = '{}\n{}\n{}\n{}'.format(method.upper(), host, path, suffix)
 
-        # get Signature
-        suffix = 'AccessKeyId={}&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp={}'.format(
-            access_key, parse.quote(timestamp))
-        payload = '{}\n{}\n{}\n{}'.format(method.upper(), host, path, suffix)
+            digest = hmac.new(secret_key.encode('utf8'), payload.encode(
+                'utf8'), digestmod=sha256).digest()
+            signature = base64.b64encode(digest).decode()
+            # data
+            data = {
+                "op": "auth",
+                "type": "api",
+                "AccessKeyId": access_key,
+                "SignatureMethod": "HmacSHA256",
+                "SignatureVersion": "2",
+                "Timestamp": timestamp,
+                "Signature": signature
+            }
+            data = json.dumps(data)
+            self._ws.send(data)
+            logger.debug(data)
+        else:
+            # get Signature
+            method="Ed25519"
+            suffix = 'AccessKeyId={}&SignatureMethod=Ed25519&SignatureVersion=2&Timestamp={}'.format(
+                access_key, parse.quote(timestamp))
+            payload = '{}\n{}\n{}\n{}'.format(method, host, path, suffix)
 
-        digest = hmac.new(secret_key.encode('utf8'), payload.encode(
-            'utf8'), digestmod=sha256).digest()
-        signature = base64.b64encode(digest).decode()
+            payload = payload.encode(encoding="UTF-8")
 
-        # data
-        data = {
-            "op": "auth",
-            "type": "api",
-            "AccessKeyId": access_key,
-            "SignatureMethod": "HmacSHA256",
-            "SignatureVersion": "2",
-            "Timestamp": timestamp,
-            "Signature": signature
-        }
-        data = json.dumps(data)
-        self._ws.send(data)
-        logger.debug(data)
+            # 从 PEM 格式的私钥加载 Ed25519 密钥
+            private_key = serialization.load_pem_private_key(
+                self._secret_key.encode(),
+                password=None,
+                backend=default_backend()
+            )
+            # 使用 Ed25519 签名
+            signature = private_key.sign(payload)
+            # 将签名编码为 Base64
+            signature = base64.b64encode(signature).decode()
+            # data
+            data = {
+                "op": "auth",
+                "type": "api",
+                "AccessKeyId": access_key,
+                "SignatureMethod": "Ed25519",
+                "SignatureVersion": "2",
+                "Timestamp": timestamp,
+                "Signature": signature
+            }
+            data = json.dumps(data)
+            self._ws.send(data)
+            logger.debug(data)
 
-    def _on_open(self):
-        logger.info('ws open.')
+
+    def _on_open(self,ws):
+        logger.info('WebSocket connection opened.')
         if self._auth == False:
             self._send_auth_data('get', self._path, self._host,
                                  self._access_key, self._secret_key)
         self._has_open = True
 
-    def _on_msg(self, message):
+    def _on_msg(self, ws, message):
         plain = gzip.decompress(message).decode()
         jdata = json.loads(plain)
         if 'ping' in jdata:
@@ -114,12 +148,12 @@ class WsUtils:
         else:
             pass
 
-    def _on_close(self):
+    def _on_close(self, ws, close_status_code, close_reason):
         logger.info("ws close.")
         if not self._active_close and self._sub_str is not None:
             self.sub(self._sub_str, self._sub_callback)
 
-    def _on_error(self, error):
+    def _on_error(self,ws, error):
         logger.error(error)
 
     def _sub(self, sub_str: str, callback):

@@ -4,7 +4,7 @@ import unittest
 
 from alpha.platforms.huobi_coin_future.websocket.ws_system_coin_future import WsSystem
 from alpha.utils import logger
-
+from tests.config import config
 sys.path.append('..')
 
 
@@ -13,7 +13,7 @@ class TestWsSystemCoinFuture(unittest.TestCase):
         logger.info('_callback:{}'.format(jdata))
 
     def test_sub(self):
-        ws = WsSystem()
+        ws = WsSystem(sign=config['sign'])
         data = {"op": "sub", "topic": "public.futures.heartbeat"}
         ws.sub(data, self._callback)
 

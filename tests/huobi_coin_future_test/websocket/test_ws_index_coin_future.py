@@ -4,6 +4,7 @@ import unittest
 
 from alpha.platforms.huobi_coin_future.websocket.ws_index_coin_future import WsIndex
 from alpha.utils import logger
+from tests import config
 
 sys.path.append('..')
 
@@ -16,11 +17,11 @@ class TestWsIndexCoinFuture(unittest.TestCase):
         logger.info('_callback_2:{}'.format(jdata))
 
     def test_sub(self):
-        ws1 = WsIndex()
+        ws1 = WsIndex(sign=config['sign'])
         data = {"sub": "market.BTC-USD.index.1min"}
         ws1.sub(data, self._callback_1)
 
-        ws2 = WsIndex()
+        ws2 = WsIndex(sign=config['sign'])
         data = {"sub": "market.BTC_CW.basis.1min.open"}
         ws2.sub(data, self._callback_2)
 

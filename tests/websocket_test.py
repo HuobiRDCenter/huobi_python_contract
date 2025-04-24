@@ -98,8 +98,8 @@ async def handle_ws_data(*args, **kwargs):
 
 if __name__ == "__main__":
     ####  input your access_key and secret_key below:
-    access_key = ""
-    secret_key = ""
+    access_key = "2c47b6d2-ed2htwf5tf-eab8ce25-e441a"
+    secret_key = "e44fd253-1f451fc8-d5076472-fd4a0"
 
     market_url = 'ws://api.hbdm.vn/linear-swap-ws'
     order_url = 'wss://api.hbdm.vn/linear-swap-notification'

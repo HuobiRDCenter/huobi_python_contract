@@ -17,7 +17,7 @@ class TestWsAccountCoinSwap(unittest.TestCase):
         logger.info('_callback_2:{}'.format(jdata))
 
     def test_sub(self):
-        ws1 = WsAccount(config['access_key'], config['secret_key'])
+        ws1 = WsAccount(access_key=config['access_key'], secret_key=config['secret_key'],sign=config['sign'])
         data = {"op": "sub", "topic": "accounts.BTC-USDT"}
         ws1.sub(data, self._callback_1)
 

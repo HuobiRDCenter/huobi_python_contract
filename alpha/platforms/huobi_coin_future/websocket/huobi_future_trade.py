@@ -22,6 +22,9 @@ import datetime
 import time
 from urllib.parse import urljoin
 
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
+
 from alpha.asset import Asset
 from alpha.order import Order
 from alpha.position import Position
@@ -101,6 +104,7 @@ class HuobiFutureTrade(Websocket):
         self._wss = kwargs["wss"]
         self._access_key = kwargs["access_key"]
         self._secret_key = kwargs["secret_key"]
+        self._sign = kwargs["sign"]
         self._asset_update_callback = kwargs.get("asset_update_callback")
         self._order_update_callback = kwargs.get("order_update_callback")
         self._position_update_callback = kwargs.get("position_update_callback")
@@ -121,7 +125,7 @@ class HuobiFutureTrade(Websocket):
         self._subscribe_position_ok = False
         self._subscribe_asset_ok = False
 
-        self._rest_api = HuobiFutureRestAPI(self._host, self._access_key, self._secret_key)
+        self._rest_api = HuobiFutureRestAPI(self._host, self._access_key, self._secret_key,self._sign)
 
         self.initialize()
 
@@ -151,12 +155,20 @@ class HuobiFutureTrade(Websocket):
     async def connected_callback(self):
         """After connect to Websocket server successfully, send a auth message to server."""
         timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
-        data = {
-            "AccessKeyId": self._access_key,
-            "SignatureMethod": "HmacSHA256",
-            "SignatureVersion": "2",
-            "Timestamp": timestamp
-        }
+        if self._sign=="256":
+            data = {
+                "AccessKeyId": self._access_key,
+                "SignatureMethod": "HmacSHA256",
+                "SignatureVersion": "2",
+                "Timestamp": timestamp
+            }
+        else:
+            data = {
+                "AccessKeyId": self._access_key,
+                "SignatureMethod": "Ed25519",
+                "SignatureVersion": "2",
+                "Timestamp": timestamp
+            }
         sign = self.generate_signature("GET", data, "/notification")
         data["op"] = "auth"
         data["type"] = "api"
@@ -164,18 +176,44 @@ class HuobiFutureTrade(Websocket):
         await self.ws.send_json(data)
     
     def generate_signature(self, method, params, request_path):
-        host_url = urllib.parse.urlparse(self._wss).hostname.lower()
-        #host_url = "172.18.6.227:9090"
-        sorted_params = sorted(params.items(), key=lambda d: d[0], reverse=False)
-        encode_params = urllib.parse.urlencode(sorted_params)
-        payload = [method, host_url, request_path, encode_params]
-        payload = "\n".join(payload)
-        payload = payload.encode(encoding="UTF8")
-        secret_key = self._secret_key.encode(encoding="utf8")
-        digest = hmac.new(secret_key, payload, digestmod=hashlib.sha256).digest()
-        signature = base64.b64encode(digest)
-        signature = signature.decode()
-        return signature
+        if self._sign=="256":
+            host_url = urllib.parse.urlparse(self._wss).hostname.lower()
+            #host_url = "172.18.6.227:9090"
+
+            sorted_params = sorted(params.items(), key=lambda d: d[0], reverse=False)
+            encode_params = urllib.parse.urlencode(sorted_params)
+
+            payload = [method, host_url, request_path, encode_params]
+            payload = "\n".join(payload)
+            payload = payload.encode(encoding="UTF8")
+            secret_key = self._secret_key.encode(encoding="utf8")
+            digest = hmac.new(secret_key, payload, digestmod=hashlib.sha256).digest()
+            signature = base64.b64encode(digest)
+            signature = signature.decode()
+            return signature
+        else:
+            host_url = urllib.parse.urlparse(self._wss).hostname.lower()
+            sorted_params = sorted(params.items(), key=lambda d: d[0], reverse=False)
+            encode_params = urllib.parse.urlencode(sorted_params)
+
+            payload = [method, host_url, request_path, encode_params]
+            payload = "\n".join(payload)
+            payload = payload.encode(encoding="UTF-8")
+
+            # 从 PEM 格式的私钥加载 Ed25519 密钥
+            private_key = serialization.load_pem_private_key(
+                self._secret_key.encode(),
+                password=None,
+                backend=default_backend()
+            )
+
+            # 使用 Ed25519 签名
+            signature = private_key.sign(payload)
+
+            # 将签名编码为 Base64
+            signature_b64 = base64.b64encode(signature).decode()
+            return signature_b64
+
 
     async def auth_callback(self, data):
         if data["err-code"] != 0:

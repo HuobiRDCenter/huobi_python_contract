@@ -1,7 +1,6 @@
 import sys
 import time
 import unittest
-
 from alpha.platforms.huobi_coin_future.websocket.ws_account_coin_future import WsAccount
 from alpha.utils import logger
 from tests.config import config
@@ -14,7 +13,7 @@ class TestWsAccountCoinFuture(unittest.TestCase):
         logger.info('_callback_1:{}'.format(jdata))
 
     def test_sub(self):
-        ws1 = WsAccount(config['access_key'], config['secret_key'])
+        ws1 = WsAccount(access_key=config['access_key'], secret_key=config['secret_key'],sign=config['sign'])
         data = {"op": "sub", "topic": "accounts.btc"}
         ws1.sub(data, self._callback_1)
 
