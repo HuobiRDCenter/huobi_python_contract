@@ -667,7 +667,7 @@ class HuobiUsdtSwapRestTradeAPI:
 
     async def get_trade_order(self, contract_code, margin_mode, order_id, client_order_id):
 
-        uri = "/v5/trade/order"
+        uri = "/api/v5/trade/order"
         params = {
             "contract_code": contract_code,
             "order_id": order_id,
