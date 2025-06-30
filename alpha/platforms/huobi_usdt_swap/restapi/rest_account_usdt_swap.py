@@ -395,6 +395,34 @@ class HuobiUsdtSwapRestAccountAPI:
         success, error = await self.request("GET", uri, params=params, auth=True)
         return success, error
 
+    async def invitee_rebate_all_rebate_detail(self, direct=None, fromId=None, limit=None):
+
+        uri = "/v2/invitee/rebate/all_rebate/detail"
+        params = {
+
+        }
+        if direct:
+            params["direct"] = direct
+        if fromId:
+            params["fromId"] = fromId
+        if limit:
+            params["limit"] = limit
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def invitee_rebate_batcher_rebate_detail(self, inviteeUidList=None):
+
+        uri = "/v2/invitee/rebate/batcher_rebate/detail"
+        params = {
+
+        }
+        if inviteeUidList:
+            params["inviteeUidList"] = inviteeUidList
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
     async def request(self, method, uri, params=None, body=None, headers=None, auth=False):
         """ Do HTTP request.
 
