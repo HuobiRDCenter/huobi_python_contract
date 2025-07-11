@@ -11,7 +11,7 @@ sys.path.append('..')
 class TestRestCrossReferenceUsdtSwap(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.api = HuobiUsdtSwapRestCrossReferenceAPI(config["host"], config["access_key"], config["secret_key"])
+        cls.api = HuobiUsdtSwapRestCrossReferenceAPI(config["host"], config["access_key"], config["secret_key"],config["sign"])
 
     def test_get_swap_cross_ladder_margin(self):
         loop = asyncio.get_event_loop()

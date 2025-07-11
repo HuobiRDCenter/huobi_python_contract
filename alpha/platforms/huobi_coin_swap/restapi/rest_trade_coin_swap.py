@@ -20,7 +20,8 @@ import time
 from urllib.parse import urljoin
 from alpha.utils.request import AsyncHttpRequests
 from alpha.const import USER_AGENT
-
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
 __all__ = ("HuobiCoinSwapRestTradeAPI",)
 
 
@@ -34,9 +35,10 @@ class HuobiCoinSwapRestTradeAPI:
         passphrase: API KEY Passphrase.
     """
 
-    def __init__(self, host, access_key, secret_key):
+    def __init__(self, host, access_key, secret_key, sign):
         """ initialize REST API client. """
         self._host = host
+        self._sign = sign
         self._access_key = access_key
         self._secret_key = secret_key
 
@@ -408,10 +410,17 @@ class HuobiCoinSwapRestTradeAPI:
         if auth:
             timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
             params = params if params else {}
-            params.update({"AccessKeyId": self._access_key,
-                           "SignatureMethod": "HmacSHA256",
-                           "SignatureVersion": "2",
-                           "Timestamp": timestamp})
+            if (self._sign == "256"):
+
+                params.update({"AccessKeyId": self._access_key,
+                               "SignatureMethod": "HmacSHA256",
+                               "SignatureVersion": "2",
+                               "Timestamp": timestamp})
+            else:
+                params.update({"AccessKeyId": self._access_key,
+                               "SignatureMethod": "Ed25519",
+                               "SignatureVersion": "2",
+                               "Timestamp": timestamp})
 
             params["Signature"] = self.generate_signature(method, params, uri)
 
@@ -438,18 +447,46 @@ class HuobiCoinSwapRestTradeAPI:
         return result, None
 
     def generate_signature(self, method, params, request_path):
-        if request_path.startswith("http://") or request_path.startswith("https://"):
-            host_url = urllib.parse.urlparse(request_path).hostname.lower()
-            request_path = '/' + '/'.join(request_path.split('/')[3:])
+        if self._sign == "256":
+            if request_path.startswith("http://") or request_path.startswith("https://"):
+                host_url = urllib.parse.urlparse(request_path).hostname.lower()
+                request_path = '/' + '/'.join(request_path.split('/')[3:])
+            else:
+                host_url = urllib.parse.urlparse(self._host).hostname.lower()
+            sorted_params = sorted(params.items(), key=lambda d: d[0], reverse=False)
+            encode_params = urllib.parse.urlencode(sorted_params)
+            payload = [method, host_url, request_path, encode_params]
+            payload = "\n".join(payload)
+            payload = payload.encode(encoding="UTF8")
+            secret_key = self._secret_key.encode(encoding="utf8")
+            digest = hmac.new(secret_key, payload, digestmod=hashlib.sha256).digest()
+            signature = base64.b64encode(digest)
+            signature = signature.decode()
+            return signature
         else:
-            host_url = urllib.parse.urlparse(self._host).hostname.lower()
-        sorted_params = sorted(params.items(), key=lambda d: d[0], reverse=False)
-        encode_params = urllib.parse.urlencode(sorted_params)
-        payload = [method, host_url, request_path, encode_params]
-        payload = "\n".join(payload)
-        payload = payload.encode(encoding="UTF8")
-        secret_key = self._secret_key.encode(encoding="utf8")
-        digest = hmac.new(secret_key, payload, digestmod=hashlib.sha256).digest()
-        signature = base64.b64encode(digest)
-        signature = signature.decode()
-        return signature
+            if request_path.startswith("http://") or request_path.startswith("https://"):
+                host_url = urllib.parse.urlparse(request_path).hostname.lower()
+                request_path = '/' + '/'.join(request_path.split('/')[3:])
+            else:
+                host_url = urllib.parse.urlparse(self._host).hostname.lower()
+
+            sorted_params = sorted(params.items(), key=lambda d: d[0], reverse=False)
+            encode_params = urllib.parse.urlencode(sorted_params)
+
+            payload = [method, host_url, request_path, encode_params]
+            payload = "\n".join(payload)
+            payload = payload.encode(encoding="UTF-8")
+
+            # 从 PEM 格式的私钥加载 Ed25519 密钥
+            private_key = serialization.load_pem_private_key(
+                self._secret_key.encode(),
+                password=None,
+                backend=default_backend()
+            )
+
+            # 使用 Ed25519 签名
+            signature = private_key.sign(payload)
+
+            # 将签名编码为 Base64
+            signature_b64 = base64.b64encode(signature).decode()
+            return signature_b64

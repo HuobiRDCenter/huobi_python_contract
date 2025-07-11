@@ -12,10 +12,11 @@
         {
             "platform": "huobi_swap",
             "account": "account",
-            "host": "https://api.hbdm.vn",
+            "host": "https://api.hbdm.com",
             "wss": "wss://api.hbdm.vn",
             "access_key": "",
-            "secret_key": ""
+            "secret_key": "",
+            "sign": ""
         }
     ],
     "MARKETS": [

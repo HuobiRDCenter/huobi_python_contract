@@ -31,10 +31,12 @@ class MyStrategy:
     def __init__(self):
         """ 初始化
         """
+
         self.strategy = config.strategy
         self.platform = config.accounts[0]["platform"]
         self.account = config.accounts[0]["account"]
         self.access_key = config.accounts[0]["access_key"]
+        self._sign = config.accounts[0]["sign"]
         self.secret_key = config.accounts[0]["secret_key"]
         self.host = config.accounts[0]["host"]
         self.wss = config.accounts[0]["wss"]
@@ -80,6 +82,7 @@ class MyStrategy:
             "asset_update_callback": self.on_event_asset_update,
             "position_update_callback": self.on_event_position_update,
             "init_success_callback": self.on_event_init_success_callback,
+            "sign":self._sign
         }
         self.trader = Trade(**cc)
 

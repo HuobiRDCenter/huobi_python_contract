@@ -36,6 +36,7 @@ class MyStrategy:
         self.account = config.accounts[0]["account"]
         self.access_key = config.accounts[0]["access_key"]
         self.secret_key = config.accounts[0]["secret_key"]
+        self.sign = config.accounts[0]["sign"]
         self.host = config.accounts[0]["host"]
         self.wss = config.accounts[0]["wss"]
         self.symbol = config.symbol
@@ -60,7 +61,6 @@ class MyStrategy:
         self.ask1_volume = 0
         self.bid1_volume = 0
 
-
         # 交易模块
         cc = {
             "strategy": self.strategy,
@@ -76,6 +76,7 @@ class MyStrategy:
             "asset_update_callback": self.on_event_asset_update,
             "position_update_callback": self.on_event_position_update,
             "init_success_callback": self.on_event_init_success_callback,
+            "sign":self.sign
         }
         self.trader = Trade(**cc)
 
@@ -93,7 +94,7 @@ class MyStrategy:
             "kline_update_callback": self.on_event_kline_update,
             "trade_update_callback": self.on_event_trade_update
         }
-        self.market = Market(**cc)
+        # self.market = Market(**cc)
                 
         # 60秒执行1次
         LoopRunTask.register(self.on_ticker, 60)

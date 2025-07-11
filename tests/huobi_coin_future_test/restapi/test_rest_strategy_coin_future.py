@@ -11,7 +11,7 @@ sys.path.append('..')
 class TestRestStrategyCoinFuture(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.api = HuobiCoinFutureRestStrategyAPI(config["host"], config["access_key"], config["secret_key"])
+        cls.api = HuobiCoinFutureRestStrategyAPI(config["host"], config["access_key"], config["secret_key"],config["sign"])
 
     def test_create_trigger_order(self):
         loop = asyncio.get_event_loop()

@@ -4,7 +4,7 @@ import unittest
 
 from alpha.platforms.huobi_coin_future.websocket.ws_market_coin_future import WsMarket
 from alpha.utils import logger
-
+from tests.config import config
 sys.path.append('..')
 
 
@@ -16,11 +16,11 @@ class TestWsMarketCoinFuture(unittest.TestCase):
         logger.info('_callback_2:{}'.format(jdata))
 
     def test_sub(self):
-        ws1 = WsMarket()
+        ws1 = WsMarket(sign=config['sign'])
         data = {"sub": "market.BTC_CQ.kline.1min"}
         ws1.sub(data, self._callback_1)
 
-        ws2 = WsMarket()
+        ws2 = WsMarket(sign=config['sign'])
         data = {"sub": "market.BTC_CQ.trade.detail"}
         ws2.sub(data, self._callback_2)
 

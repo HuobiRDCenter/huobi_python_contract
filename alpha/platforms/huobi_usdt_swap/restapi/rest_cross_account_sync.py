@@ -4,9 +4,10 @@ from alpha.utils.http_utils import post
 
 
 class RestCrossAccountUsdtSwap:
-    def __init__(self, access_key: str, secret_key: str, host: str = None):
+    def __init__(self, access_key: str, secret_key: str,sign, host: str = None):
         self.access_key = access_key
         self.secret_key = secret_key
+        self.sign = sign  # 签名方法，可以是 hmac-sha256, md5 等
         if host is None:
             host = "api.hbdm.com"
         self.host = host
