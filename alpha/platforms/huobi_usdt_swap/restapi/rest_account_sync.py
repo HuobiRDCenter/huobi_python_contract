@@ -105,3 +105,13 @@ class RestAccountUsdtSwap:
     def swap_multi_assets_margin(self, data: dict = None) -> json:
         path = "/v5/account/multi_assets_margin"
         return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def invitee_rebate_all_rebate_detail(self, params: dict = None) -> json:
+        path = "/v2/invitee/rebate/all_rebate/detail"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def invitee_rebate_batcher_rebate_detail(self, params: dict = None) -> json:
+        path = "/v2/invitee/rebate/batcher_rebate/detail"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
