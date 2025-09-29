@@ -574,7 +574,7 @@ class HuobiUsdtSwapRestTradeAPI:
         return success, error
 
     async def swap_trade_order_history(self, contract_code, state, type, price_match,
-                                       start_time, end_time, from_, limit, direct, business_type, margin_mode):
+                                       start_time, end_time, from_, limit, direct, margin_mode, time_in_force):
 
         uri = "/api/v5/trade/order/history"
         params = {
@@ -588,7 +588,7 @@ class HuobiUsdtSwapRestTradeAPI:
             "price_match": price_match,
             "direct": direct,
             "margin_mode": margin_mode,
-            "business_type": business_type
+            "time_in_force": time_in_force
         }
 
         success, error = await self.request("GET", uri, params=params, auth=True)
