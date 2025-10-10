@@ -423,6 +423,83 @@ class HuobiUsdtSwapRestAccountAPI:
         success, error = await self.request("GET", uri, params=params, auth=True)
         return success, error
 
+    async def account_fee_deduction_currency(self, fee_option, deduction_currency):
+
+        uri = "/v5/account/fee_deduction_currency"
+        params = {
+
+        }
+        if fee_option:
+            params["fee_option"] = fee_option
+        if deduction_currency:
+            params["deduction_currency"] = deduction_currency
+        success, error = await self.request("POST", uri, params=params, auth=True)
+        return success, error
+
+    async def project_query_earn_project_list(self, currency, pageNum, pageSize):
+
+        uri = "/v1/earn/project/queryEarnProjectList"
+        params = {
+
+        }
+        if currency:
+            params["currency"] = currency
+        if pageNum:
+            params["pageNum"] = pageNum
+        if pageSize:
+            params["pageSize"] = pageSize
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def earn_order_demand_add(self, id, amount, requestId):
+
+        uri = "/v1/earn/order/demand/add"
+        params = {
+
+        }
+        if id:
+            params["id"] = id
+        if amount:
+            params["amount"] = amount
+        if requestId:
+            params["requestId"] = requestId
+        success, error = await self.request("POST", uri, params=params, auth=True)
+        return success, error
+
+    async def earn_order_demand_redeem_order(self, orderId, requestId, amount):
+
+        uri = "/v1/earn/order/demand/redeem-order"
+        params = {
+
+        }
+        if id:
+            params["id"] = id
+        if amount:
+            params["amount"] = amount
+        if requestId:
+            params["requestId"] = requestId
+        if orderId:
+            params["orderId"] = orderId
+        success, error = await self.request("POST", uri, params=params, auth=True)
+        return success, error
+
+    async def v1_earn_order_user_assets_list(self, projectType, currency, pageNum, pageSize):
+
+        uri = "/v1/earn/order/user/assets/list"
+        params = {
+
+        }
+        if currency:
+            params["currency"] = currency
+        if pageNum:
+            params["pageNum"] = pageNum
+        if pageSize:
+            params["pageSize"] = pageSize
+        if projectType:
+            params["projectType"] = projectType
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
     async def request(self, method, uri, params=None, body=None, headers=None, auth=False):
         """ Do HTTP request.
 
