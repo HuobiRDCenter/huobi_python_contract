@@ -389,6 +389,20 @@ class HuobiUsdtSwapRestAccountAPI:
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
 
+    async def set_asset_mode(self, asset_mode):
+        uri = "/v5/account/asset_mode"
+        body = {
+            "asset_mode": asset_mode
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def get_asset_mode(self):
+        uri = "/v5/account/asset_mode"
+        params = {}
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
     async def get_swap_api_account_balance(self):
         uri = "/v5/account/balance"
         params = {}
