@@ -224,22 +224,9 @@ class HuobiUsdtSwapRestMarketAPI:
         success, error = await self.request("GET", uri, params=params)
         return success, error
 
-    async def market_risk_limit(self, contract_code, contract_type, margin_mode, tier):
-
-        uri = "/index/market/history/linear_swap_basis"
-        params = {
-            "contract_code": contract_code,
-            "contract_type": contract_type,
-            "margin_mode": margin_mode,
-            "tier": tier
-        }
-
-        success, error = await self.request("GET", uri, params=params)
-        return success, error
-
     async def market_assets_deduction_currency(self):
 
-        uri = "/v5/assets_deduction_currency"
+        uri = "/v5/market/assets_deduction_currency"
         params = {
         }
 
@@ -254,6 +241,168 @@ class HuobiUsdtSwapRestMarketAPI:
         }
 
         success, error = await self.request("GET", uri, params=params)
+        return success, error
+    
+    async def market_risk_limit(self, contract_code, contract_type, margin_mode, tier):
+
+        uri = "/v5/market/risk/limit"
+        params = {
+            "contract_code": contract_code,
+            "contract_type": contract_type,
+            "margin_mode": margin_mode,
+            "tier": tier
+        }
+
+        success, error = await self.request("GET", uri, params=params)
+        return success, error
+    
+    async def get_funding_rate(self, contract_code: str):
+        """查询资金费率"""
+        uri = "/v5/market/funding_rate"
+        params = {
+            "contract_code": contract_code
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
+        return success, error
+
+    async def get_funding_rate_history(self, 
+                                      contract_code: str, 
+                                      start_time: int = None, 
+                                      end_time: int = None,
+                                      from_page: int = None,
+                                      limit: int = None,
+                                      direct: str = None):
+        """查询历史资金费率"""
+        uri = "/v5/market/funding_rate_history"
+        params = {
+            "contract_code": contract_code
+        }
+
+        if start_time:
+            params["start_time"] = start_time
+        if end_time:
+            params["end_time"] = end_time
+        if from_page is not None:
+            params["from"] = from_page
+        if limit is not None:
+            params["limit"] = limit
+        if direct:
+            params["direct"] = direct
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
+        return success, error
+
+    async def get_open_interest(self, contract_code: str):
+        """查询持仓总量"""
+        uri = "/v5/market/open_interest"
+        params = {
+            "contract_code": contract_code
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
+        return success, error
+
+    async def get_price_limit(self):
+        """查询价格限制"""
+        uri = "/v5/market/price_limit"
+        params = {}
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
+        return success, error
+
+    async def get_liquidation_orders(self, 
+                                    contract_code: str = None, 
+                                    pair: str = None,
+                                    start_time: int = None,
+                                    end_time: int = None,
+                                    direct: str = None,
+                                    from_page: int = None,
+                                    limit: int = None):
+        """查询强平订单"""
+        uri = "/v5/market/liquidation_orders"
+        params = {}
+
+        if contract_code:
+            params["contract_code"] = contract_code
+        if pair:
+            params["pair"] = pair
+        if start_time:
+            params["start_time"] = start_time
+        if end_time:
+            params["end_time"] = end_time
+        if direct:
+            params["direct"] = direct
+        if from_page is not None:
+            params["from"] = from_page
+        if limit is not None:
+            params["limit"] = limit
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
+        return success, error
+
+    async def get_settlement_history(self, 
+                                    contract_code: str = None,
+                                    start_time: int = None,
+                                    end_time: int = None,
+                                    direct: str = None,
+                                    from_page: str = None,
+                                    limit: int = None):
+        """查询结算历史"""
+        uri = "/v5/market/settlement_history"
+        params = {}
+
+        if contract_code:
+            params["contract_code"] = contract_code
+        if start_time:
+            params["start_time"] = start_time
+        if end_time:
+            params["end_time"] = end_time
+        if direct:
+            params["direct"] = direct
+        if from_page:
+            params["from"] = from_page
+        if limit is not None:
+            params["limit"] = limit
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
+        return success, error
+
+    async def get_elite_account_ratio(self, contract_code: str, period: str = None):
+        """查询精英账户多空持仓对比"""
+        uri = "/v5/market/elite_account_ratio"
+        params = {
+            "contract_code": contract_code
+        }
+
+        if period:
+            params["period"] = period
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
+        return success, error
+
+    async def get_elite_position_ratio(self, contract_code: str, period: str = None):
+        """查询精英账户多空持仓对比(持仓数)"""
+        uri = "/v5/market/elite_position_ratio"
+        params = {
+            "contract_code": contract_code
+        }
+
+        if period:
+            params["period"] = period
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
+        return success, error
+
+    async def get_estimated_settlement_price(self, contract_code: str = None):
+        """查询预估结算价"""
+        uri = "/v5/market/estimated_settlement_price"
+        params = {}
+
+        if contract_code:
+            params["contract_code"] = contract_code
+
+        success, error = await self.request("GET", uri, params=params, auth=False)
         return success, error
 
     async def request(self, method, uri, params=None, body=None, headers=None, auth=False):

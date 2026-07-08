@@ -1,4 +1,2 @@
-.idea
-*.pyc
-test
-build/
+.DS_Store
+logs/

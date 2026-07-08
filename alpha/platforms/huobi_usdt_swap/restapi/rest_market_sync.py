@@ -57,16 +57,59 @@ class RestMarketUsdtSwap:
         path = "/index/market/history/linear_swap_basis"
         return get(self.host, path, params)
 
-    def market_risk_limit(self, params: dict = None) -> json:
-        path = "/v5/market/risk_limit"
-        return get(self.host, path, params)
-
     def market_assets_deduction_currency(self, params: dict = None) -> json:
-        path = "/v5/assets_deduction_currency"
+        path = "/v5/market/assets_deduction_currency"
         return get(self.host, path, params)
 
     def multi_assets_margin_list(self, params: dict = None) -> json:
         path = "/v5/market/multi_assets_margin/list"
         return get(self.host, path, params)
+    
+    def market_risk_limit(self, params: dict = None) -> json:
+        path = "/v5/market/risk/limit"
+        return get(self.host, path, params)
 
+    def market_funding_rate(self, params: dict = None) -> dict:
+        """查询资金费率"""
+        path = "/v5/market/funding_rate"
+        return get(self.host, path, params)
 
+    def market_funding_rate_history(self, params: dict = None) -> dict:
+        """查询历史资金费率"""
+        path = "/v5/market/funding_rate_history"
+        return get(self.host, path, params)
+
+    def market_open_interest(self, params: dict = None) -> dict:
+        """查询持仓总量"""
+        path = "/v5/market/open_interest"
+        return get(self.host, path, params)
+
+    def market_price_limit(self, params: dict = None) -> dict:
+        """查询价格限制"""
+        path = "/v5/market/price_limit"
+        return get(self.host, path, params)
+
+    def market_liquidation_orders(self, params: dict = None) -> dict:
+        """查询强平订单"""
+        path = "/v5/market/liquidation_orders"
+        return get(self.host, path, params)
+
+    def market_settlement_history(self, params: dict = None) -> dict:
+        """查询结算历史"""
+        path = "/v5/market/settlement_history"
+        return get(self.host, path, params)
+
+    def market_elite_account_ratio(self, params: dict = None) -> dict:
+        """查询精英账户多空持仓对比"""
+        path = "/v5/market/elite_account_ratio"
+        return get(self.host, path, params)
+
+    def market_elite_position_ratio(self, params: dict = None) -> dict:
+        """查询精英账户多空持仓对比(持仓数)"""
+        path = "/v5/market/elite_position_ratio"
+        return get(self.host, path, params)
+
+    def market_estimated_settlement_price(self, params: dict = None) -> dict:
+        """查询预估结算价"""
+        path = "/v5/market/estimated_settlement_price"
+        return get(self.host, path, params)
