@@ -148,16 +148,6 @@ class RestAccountUsdtSwap:
         path = "/v5/account/fee_deduction_currency"
         return post(self.access_key, self.secret_key, self.host, path, data)
 
-    def invitee_rebate_referrals(self, params: dict = None) -> json:
-        """
-        查询邀请用户列表
-        :param params: 请求参数，包含 userId, inviteeUidList, referralCode, startTime, endTime, direct, fromId, limit
-        :return: 响应JSON
-        """
-        path = "/v2/invitee/rebate/referrals"
-        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
-        return get(self.host, path, params)
-
     def invitee_rebate_all_rebate_detail(self, params: dict = None) -> json:
         path = "/v2/invitee/rebate/all_rebate/detail"
         path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
