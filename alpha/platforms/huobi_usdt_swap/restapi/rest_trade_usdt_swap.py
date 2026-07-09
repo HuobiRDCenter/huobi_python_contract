@@ -425,6 +425,19 @@ class HuobiUsdtSwapRestTradeAPI:
 
         success, error = await self.request("GET", uri, params=params, auth=True)
         return success, error
+    
+    async def swap_trade_order_query(self, contract_code, margin_mode, order_id, client_order_id):
+
+        uri = "/v5/trade/order"
+        params = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode,
+            "order_id": order_id,
+            "client_order_id": client_order_id
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
 
     async def swap_trade_order(self, contract_code, margin_mode, position_side, side, type, price_match,
                                             client_order_id, price, volume, reduce_only, time_in_force, tp_trigger_price,
@@ -555,17 +568,34 @@ class HuobiUsdtSwapRestTradeAPI:
         }
         success, error = await self.request("POST", uri, body=body, auth=True)
         return success, error
+    
+    async def swap_trade_order_opens(self, contract_code, margin_mode, order_id, client_order_id, from_, limit, direct):
 
-    async def swap_trade_order_trades(self, contract_code, order_id, client_order_id, start_time, end_time, from_, limit, direct):
-
-        uri = "/api/V5/trade/order/details"
+        uri = "/v5/trade/order/opens"
         params = {
             "contract_code": contract_code,
+            "margin_mode": margin_mode,
+            "order_id": order_id,
+            "client_order_id": client_order_id,
+            "from": from_,
+            "limit": limit,
+            "direct": direct
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def swap_trade_order_trades(self, contract_code, margin_mode, order_id, client_order_id, start_time, end_time, from_, limit, direct):
+
+        uri = "/api/v5/trade/order/details"
+        params = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode,
             "order_id": order_id,
             "client_order_id": client_order_id,
             "start_time": start_time,
             "end_time": end_time,
-            "from_": from_,
+            "from": from_,
             "limit": limit,
             "direct": direct
         }
@@ -574,14 +604,14 @@ class HuobiUsdtSwapRestTradeAPI:
         return success, error
 
     async def swap_trade_order_history(self, contract_code, state, type, price_match,
-                                       start_time, end_time, from_, limit, direct, margin_mode, time_in_force):
+                                       start_time, end_time, from, limit, direct, margin_mode, time_in_force):
 
         uri = "/api/v5/trade/order/history"
         params = {
             "contract_code": contract_code,
             "start_time": start_time,
             "end_time": end_time,
-            "from_": from_,
+            "from": from_,
             "limit": limit,
             "state": state,
             "type": type,
@@ -621,6 +651,28 @@ class HuobiUsdtSwapRestTradeAPI:
 
         success, error = await self.request("GET", uri, params=params, auth=True)
         return success, error
+    
+    async def swap_trade_cancel_after(self, on_off, time_out):
+
+        uri = "/v5/trade/cancel-after"
+        body = {
+            "on_off": on_off,
+            "time_out": time_out
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def swap_trade_position_margin(self, contract_code, position_side, type, amount):
+
+        uri = "/v5/position/margin"
+        body = {
+            "contract_code": contract_code,
+            "position_side": position_side,
+            "type": type,
+            "amount": amount
+        }
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
 
     async def swap_trade_position_lever(self, contract_code, margin_mode):
 
@@ -653,13 +705,24 @@ class HuobiUsdtSwapRestTradeAPI:
         success, error = await self.request("GET", uri, params=params, auth=True)
         return success, error
 
-    async def swap_trade_position_riskLimit(self, contract_code, margin_mode, position_side):
+    async def swap_trade_position_risk_limit(self, contract_code, margin_mode, position_side):
 
-        uri = "/v5/position/riskLimit"
+        uri = "/v5/position/risk/limit"
         params = {
             "contract_code": contract_code,
             "margin_mode": margin_mode,
             "position_side": position_side
+        }
+
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+    
+    async def swap_trade_position_risk_limitTier(self, contract_code, margin_mode):
+
+        uri = "/v5/position/risk/limit_tier"
+        params = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode
         }
 
         success, error = await self.request("GET", uri, params=params, auth=True)

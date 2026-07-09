@@ -101,6 +101,35 @@ class RestAccountUsdtSwap:
         path = "/v5/account/balance"
         path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
         return get(self.host, path, params)
+    
+    def swap_api_account_fee_deduction_currency_query(self, params: dict = None) -> json:
+        path = "/v5/account/fee_deduction_currency"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+    
+    def swap_api_account_bills(self, params: dict = None) -> json:
+        path = "/v5/account/bills"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def get_universal_transfer_records(self, params: dict = None) -> json:
+        """
+        查询划转记录
+        :param params: 请求参数，包含 userId, transfer_id, currency, status, start_time, end_time, from, limit, direct
+        :return: 响应JSON
+        """
+        path = "/v5/account/universal_transfer_records"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def universal_transfer(self, data: dict = None) -> json:
+        """
+        执行划转
+        :param data: 请求体，包含 userId, currency, amount, from_account_type, to_account_type, from_asset_type, to_asset_type
+        :return: 响应JSON
+        """
+        path = "/v5/account/universal_transfer"
+        return post(self.access_key, self.secret_key, self.host, path, data)
 
     def swap_multi_assets_margin(self, data: dict = None) -> json:
         path = "/v5/account/multi_assets_margin"

@@ -409,6 +409,112 @@ class HuobiUsdtSwapRestAccountAPI:
         success, error = await self.request("GET", uri, params=params, auth=True)
         return success, error
 
+    async def swap_api_account_fee_deduction_currency_query(self):
+        uri = "/v5/account/fee_deduction_currency"
+        params = {}
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+    
+    async def swap_api_account_bills(self, contract_code, margin_mode, type, start_time, end_time, from_, limit, direct):
+        uri = "/v5/account/bills"
+        params = {
+            "contract_code": contract_code,
+            "margin_mode": margin_mode,
+            "type": type,
+            "start_time": start_time,
+            "end_time": end_time,
+            "from": from_,
+            "limit": limit,
+            "direct": direct
+        }
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
+    async def get_universal_transfer_records(self, user_id, transfer_id=None, currency=None,
+                                             status=None, start_time=None, end_time=None,
+                                             from_=None, limit=None, direct=None):
+        """查询划转记录"""
+        uri = "/v5/account/universal_transfer_records"
+        params = {"userId": user_id}
+        
+        if transfer_id is not None:
+            params["transfer_id"] = transfer_id
+        if currency is not None:
+            params["currency"] = currency
+        if status is not None:
+            params["status"] = status
+        if start_time is not None:
+            params["start_time"] = start_time
+        if end_time is not None:
+            params["end_time"] = end_time
+        if from_ is not None:
+            params["from"] = from_
+        if limit is not None:
+            params["limit"] = limit
+        if direct is not None:
+            params["direct"] = direct
+        
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+    
+    async def universal_transfer(self, user_id, currency, amount, from_account_type,
+                                 to_account_type, from_asset_type=None, to_asset_type=None):
+        """执行划转"""
+        uri = "/v5/account/universal_transfer"
+        body = {
+            "userId": user_id,
+            "currency": currency,
+            "amount": amount,
+            "from_account_type": from_account_type,
+            "to_account_type": to_account_type
+        }
+        
+        if from_asset_type is not None:
+            body["from_asset_type"] = from_asset_type
+        if to_asset_type is not None:
+            body["to_asset_type"] = to_asset_type
+        
+        success, error = await self.request("POST", uri, body=body, auth=True)
+        return success, error
+
+    async def invitee_rebate_referrals(self, userId, inviteeUidList=None, referralCode=None, 
+                                    startTime=None, endTime=None, direct=None, 
+                                    fromId=None, limit=None):
+        """
+        查询邀请用户列表
+        :param userId: 用户ID
+        :param inviteeUidList: 被邀请人UID，多个用逗号分隔（可选）
+        :param referralCode: 邀请码（可选）
+        :param startTime: 开始时间戳（可选）
+        :param endTime: 结束时间戳（可选）
+        :param direct: 查询方向 prev/next（可选）
+        :param fromId: 分页ID（可选）
+        :param limit: 每页数量（可选）
+        :return: (success, error)
+        """
+        uri = "/v2/invitee/rebate/referrals"
+        params = {
+            "userId": userId
+        }
+        
+        if inviteeUidList:
+            params["inviteeUidList"] = inviteeUidList
+        if referralCode:
+            params["referralCode"] = referralCode
+        if startTime:
+            params["startTime"] = startTime
+        if endTime:
+            params["endTime"] = endTime
+        if direct:
+            params["direct"] = direct
+        if fromId:
+            params["fromId"] = fromId
+        if limit:
+            params["limit"] = limit
+        
+        success, error = await self.request("GET", uri, params=params, auth=True)
+        return success, error
+
     async def invitee_rebate_all_rebate_detail(self, direct=None, fromId=None, limit=None):
 
         uri = "/v2/invitee/rebate/all_rebate/detail"
