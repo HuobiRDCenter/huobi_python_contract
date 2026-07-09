@@ -62,7 +62,7 @@ class RestMarketUsdtSwap:
         return get(self.host, path, params)
 
     def market_assets_deduction_currency(self, params: dict = None) -> json:
-        path = "/v5/assets_deduction_currency"
+        path = "/v5/market/assets_deduction_currency"
         return get(self.host, path, params)
 
     def multi_assets_margin_list(self, params: dict = None) -> json:

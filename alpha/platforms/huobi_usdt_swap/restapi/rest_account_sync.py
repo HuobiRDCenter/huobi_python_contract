@@ -106,6 +106,19 @@ class RestAccountUsdtSwap:
         path = "/v5/account/multi_assets_margin"
         return post(self.access_key, self.secret_key, self.host, path, data)
 
+    def set_asset_mode(self, data: dict = None) -> json:
+        path = "/v5/account/asset_mode"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
+    def get_asset_mode(self, params: dict = None) -> json:
+        path = "/v5/account/asset_mode"
+        path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))
+        return get(self.host, path, params)
+
+    def set_account_fee_deduction_currency(self, data: dict = None) -> json:
+        path = "/v5/account/fee_deduction_currency"
+        return post(self.access_key, self.secret_key, self.host, path, data)
+
     def invitee_rebate_all_rebate_detail(self, params: dict = None) -> json:
         path = "/v2/invitee/rebate/all_rebate/detail"
         path = "{}?{}".format(path, get_url_suffix('get', self.access_key, self.secret_key, self.host, path))

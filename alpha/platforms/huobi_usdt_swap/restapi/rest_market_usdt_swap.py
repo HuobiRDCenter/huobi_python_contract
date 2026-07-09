@@ -239,7 +239,7 @@ class HuobiUsdtSwapRestMarketAPI:
 
     async def market_assets_deduction_currency(self):
 
-        uri = "/v5/assets_deduction_currency"
+        uri = "/v5/market/assets_deduction_currency"
         params = {
         }
 
